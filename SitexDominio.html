@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorador de Presença Web: Domínio, Site e Hospedagem</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        .card {
+            background-color: #FFFFFF;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+            padding: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #E5E7EB; 
+        }
+        .card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
+        .text-accent {
+            color: #008B8B; 
+        }
+        .bg-accent-light {
+            background-color: #F0FFFF; 
+        }
+        .border-accent {
+            border-color: #008B8B;
+        }
+        .active-btn {
+            background-color: #008B8B;
+            color: white;
+            transform: scale(1.05);
+        }
+        .chart-container { 
+            position: relative; 
+            width: 100%; 
+            max-width: 600px; 
+            margin-left: auto; 
+            margin-right: auto; 
+            height: 300px; 
+            max-height: 400px; 
+        } 
+        @media (min-width: 768px) { 
+            .chart-container { 
+                height: 350px; 
+            } 
+        }
+    </style>
+</head>
+<body class="bg-[#FBFBF9] text-gray-800 min-h-screen">
+    <!-- Chosen Palette: Warm Neutrals & Blue Accent (#008B8B) -->
+    <!-- Application Structure Plan: Thematic Dashboard Layout. 1. Visão Geral (Analogy Cards). 2. O Triângulo Digital (Core Interactive Diagram). 3. Detalhes (Dynamic Content Panel updated by the diagram). 4. Composição (Donut Chart). 5. Resumo Comparativo (Interactive Table). This structure prioritizes non-linear exploration and immediate comparison, which is better than the original linear text for conceptual clarity. -->
+    <!-- Visualization & Content Choices: Analogia -> Organize -> HTML Cards -> None -> Provides immediate, relatable context -> Structured HTML/CSS, Unicode Icons. Triângulo Digital -> Organize/Compare -> HTML Diagram (Buttons) -> Click to update content panel -> Encourages exploration of relationships -> Vanilla JS for content update. Funções Detalhadas -> Inform/Compare -> Dynamic Detail Panel -> Filter/Toggle via the diagram -> Keeps detailed text accessible on demand -> Vanilla JS class toggling. Proporção Necessária -> Inform -> Donut Chart -> None -> Quick visual summary of component necessity -> Chart.js/Canvas. Resumo -> Compare -> HTML Table -> Hover Highlight -> Reinforces final distinction -> Structured HTML/CSS. CONFIRMING: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-accent">Explorador Web 🌐</h1>
+            <nav class="hidden md:flex space-x-4">
+                <a href="#analogia" class="text-gray-600 hover:text-accent font-medium">Analogia</a>
+                <a href="#triangulo" class="text-gray-600 hover:text-accent font-medium">Triângulo Digital</a>
+                <a href="#resumo" class="text-gray-600 hover:text-accent font-medium">Resumo</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12">
+        <section class="mb-16">
+            <h2 class="text-4xl font-extrabold text-gray-900 mb-4">Entendendo a Presença Digital: Domínio, Site e Hospedagem</h2>
+            <p class="text-lg text-gray-600 max-w-3xl">Esta aplicação interativa traduz o relatório sobre os pilares fundamentais da internet. Explore a distinção, função e relação entre estes três elementos cruciais para o sucesso da sua marca online.</p>
+        </section>
+
+        <!-- SECÇÃO 1: VISÃO GERAL E ANALOGIA -->
+        <section id="analogia" class="mb-20">
+            <h3 class="text-3xl font-bold text-accent mb-6">1. Visão Geral: A Analogia da Casa</h3>
+            <p class="text-gray-600 mb-8 max-w-4xl">Aqui, desvendamos os conceitos através da analogia mais eficaz. Cada card representa um pilar do seu negócio online, facilitando a memorização e compreensão do papel de cada um.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <div class="card bg-accent-light border-accent text-center">
+                    <p class="text-5xl mb-3">📍</p>
+                    <h4 class="text-xl font-bold text-accent">Domínio</h4>
+                    <p class="text-gray-700 font-semibold">O Endereço</p>
+                    <p class="text-sm text-gray-500 mt-2">Aponta o caminho. Fácil de lembrar.</p>
+                </div>
+                
+                <div class="card bg-accent-light border-accent text-center">
+                    <p class="text-5xl mb-3">🏡</p>
+                    <h4 class="text-xl font-bold text-accent">Site</h4>
+                    <p class="text-gray-700 font-semibold">A Casa (Conteúdo)</p>
+                    <p class="text-sm text-gray-500 mt-2">Onde as pessoas interagem.</p>
+                </div>
+                
+                <div class="card bg-accent-light border-accent text-center">
+                    <p class="text-5xl mb-3">🌱</p>
+                    <h4 class="text-xl font-bold text-accent">Hospedagem</h4>
+                    <p class="text-gray-700 font-semibold">O Lote / Terreno</p>
+                    <p class="text-sm text-gray-500 mt-2">Armazena os arquivos 24/7.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECÇÃO 2: O TRIÂNGULO DIGITAL INTERATIVO -->
+        <section id="triangulo" class="mb-20">
+            <h3 class="text-3xl font-bold text-accent mb-6">2. O Triângulo Digital (Exploração Detalhada)</h3>
+            <p class="text-gray-600 mb-8 max-w-4xl">Clique nos botões abaixo para ver as definições, funções e estruturas detalhadas de cada componente. Esta seção interativa permite a exploração não-linear do conteúdo do relatório.</p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Coluna 1: Diagrama e Controles -->
+                <div class="lg:col-span-1 flex flex-col items-center p-4 card bg-white">
+                    <div class="flex flex-col space-y-4 w-full">
+                        <button id="btn-dominio" class="p-3 font-semibold rounded-lg bg-gray-100 hover:bg-gray-200 transition active-btn" onclick="mostrarDetalhe('dominio')">
+                            📍 Domínio (Endereço)
+                        </button>
+                        <button id="btn-site" class="p-3 font-semibold rounded-lg bg-gray-100 hover:bg-gray-200 transition" onclick="mostrarDetalhe('site')">
+                            🏡 Site (Conteúdo)
+                        </button>
+                        <button id="btn-hospedagem" class="p-3 font-semibold rounded-lg bg-gray-100 hover:bg-gray-200 transition" onclick="mostrarDetalhe('hospedagem')">
+                            🌱 Hospedagem (Terreno)
+                        </button>
+                    </div>
+                    
+                    <div class="mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-500 w-full">
+                        <p class="font-semibold text-gray-700">Dica:</p>
+                        <p>A Hospedagem conecta o Domínio ao Site, garantindo que o endereço leve ao conteúdo 24 horas por dia.</p>
+                    </div>
+                </div>
+
+                <!-- Coluna 2/3: Painel de Detalhes Dinâmico -->
+                <div class="lg:col-span-2 card bg-white border-accent-light">
+                    <div id="painel-detalhe">
+                        <!-- Conteúdo dinâmico será injetado aqui pelo JS -->
+                        <h4 class="text-2xl font-bold text-gray-900 mb-3">Domínio (O Endereço)</h4>
+                        <p class="text-lg text-accent font-medium mb-4">Identidade Única e Localização</p>
+                        <p class="text-gray-700 mb-4">O Domínio é o nome amigável (ex: `exemplo.com.br`) que substitui o endereço técnico (o IP) para facilitar a navegação. É a sua marca registrada na web.</p>
+
+                        <div class="mt-6">
+                            <h5 class="font-bold text-xl mb-3 text-gray-800">Para que Serve</h5>
+                            <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                <li>**Localização:** Permite que os usuários encontrem seu conteúdo de forma simples.</li>
+                                <li>**Branding:** Cria a identidade da sua marca online.</li>
+                                <li>**E-mail Profissional:** Possibilita criar contas de e-mail personalizadas (`contato@seudominio.com`).</li>
+                            </ul>
+                        </div>
+                        <p class="mt-6 text-sm italic text-gray-500">Estrutura: Nome Escolhido + Extensão (TLD). Exemplo: `google` + `.com`.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SECÇÃO 3: COMPOSIÇÃO E NECESSIDADE E RESUMO COMPARATIVO -->
+        <section id="resumo" class="mb-16">
+            <h3 class="text-3xl font-bold text-accent mb-6">3. Composição e Necessidade</h3>
+            <p class="text-gray-600 mb-8 max-w-4xl">Análise da necessidade de cada componente. Embora o Domínio e a Hospedagem sejam essenciais para o funcionamento, o Site representa o volume real de trabalho e conteúdo.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                
+                <!-- Gráfico de Composição -->
+                <div class="card bg-white">
+                    <h4 class="text-xl font-bold text-gray-800 mb-4">Peso da Presença Digital</h4>
+                    <div class="chart-container">
+                        <canvas id="composicaoChart"></canvas>
+                    </div>
+                    <p class="mt-4 text-sm text-gray-500">O Site detém o maior "peso" em termos de conteúdo e funcionalidades, mas Domínio e Hospedagem são os 100% de infraestrutura.</p>
+                </div>
+                
+                <!-- Tabela de Resumo Interativo -->
+                <div class="card bg-white">
+                    <h4 class="text-xl font-bold text-gray-800 mb-4">Resumo Comparativo</h4>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Característica</th>
+                                    <th class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-accent">Domínio</th>
+                                    <th class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-accent">Site</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr class="hover:bg-gray-50 transition duration-150">
+                                    <td class="px-3 py-4 whitespace-nowrap font-medium text-gray-700">O que é?</td>
+                                    <td class="px-3 py-4 whitespace-nowrap">O Endereço</td>
+                                    <td class="px-3 py-4 whitespace-nowrap">O Conteúdo</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition duration-150 bg-gray-50">
+                                    <td class="px-3 py-4 whitespace-nowrap font-medium text-gray-700">Exemplo</td>
+                                    <td class="px-3 py-4 whitespace-nowrap">minhaempresa.com.br</td>
+                                    <td class="px-3 py-4 whitespace-nowrap">Página inicial, formulário de contato</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition duration-150">
+                                    <td class="px-3 py-4 whitespace-nowrap font-medium text-gray-700">Função</td>
+                                    <td class="px-3 py-4 whitespace-nowrap">Identificar e Localizar</td>
+                                    <td class="px-3 py-4 whitespace-nowrap">Apresentar Conteúdo e Funcionalidade</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition duration-150 bg-gray-50">
+                                    <td class="px-3 py-4 whitespace-nowrap font-medium text-gray-700">Necessidade</td>
+                                    <td class="px-3 py-4 whitespace-nowrap">Registro Anual</td>
+                                    <td class="px-3 py-4 whitespace-nowrap">Precisa de Hospedagem para existir</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="mt-6 text-sm text-gray-500">Lembrete: Um Domínio pode existir sem um Site, mas um Site sem Domínio é inútil para o público.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white text-center p-6 mt-12">
+        <p class="text-sm">Explorador de Conceitos Web | Arquitetura de Informação Otimizada</p>
+    </footer>
+
+    <script>
+        const dados = {
+            dominio: {
+                titulo: 'Domínio (O Endereço)',
+                subtitulo: 'Identidade Única e Localização',
+                texto: 'O Domínio é o nome amigável (ex: `exemplo.com.br`) que substitui o endereço técnico (o IP) para facilitar a navegação. É a sua marca registrada na web.',
+                funcoes: [
+                    'Localização: Permite que os usuários encontrem seu conteúdo de forma simples.',
+                    'Branding: Cria a identidade da sua marca online.',
+                    'E-mail Profissional: Possibilita criar contas de e-mail personalizadas (`contato@seudominio.com`).'
+                ],
+                estrutura: 'Estrutura: Nome Escolhido + Extensão (TLD). Exemplo: `google` + `.com`.'
+            },
+            site: {
+                titulo: 'Site (O Conteúdo)',
+                subtitulo: 'Estrutura, Mídia e Funcionalidades',
+                texto: 'O Site é a coleção de páginas web, textos, imagens, vídeos e códigos de programação (HTML, CSS, JavaScript) que são exibidos ao visitante. É a sua "casa" na internet.',
+                funcoes: [
+                    'Informação: Publicar conteúdo, notícias e artigos.',
+                    'Negócios: Vender produtos (e-commerce), divulgar serviços e capturar leads.',
+                    'Interação: Servir como plataforma de comunicação com o público.'
+                ],
+                estrutura: 'Estrutura: Coleção de Páginas + Mídia + Funcionalidades. Necessita de Hospedagem.'
+            },
+            hospedagem: {
+                titulo: 'Hospedagem (O Lote / Terreno)',
+                subtitulo: 'Armazenamento e Acesso 24/7',
+                texto: 'Hospedagem é o serviço que armazena todos os arquivos do seu Site em servidores conectados à internet. Ela é essencial para que seu Site esteja acessível 24 horas por dia, 7 dias por semana.',
+                funcoes: [
+                    'Armazenamento de Dados: Guarda todos os arquivos, códigos e bancos de dados do Site.',
+                    'Conexão com o Domínio: Vincula o nome amigável ao IP do servidor.',
+                    'Disponibilidade Contínua: Garante que o Site esteja sempre online.'
+                ],
+                estrutura: 'Necessidade: Serviço contratado para manter o Site no ar.'
+            }
+        };
+
+        const chartConfig = {
+            type: 'doughnut',
+            data: {
+                labels: ['Domínio (Endereço)', 'Hospedagem (Servidor)', 'Site (Conteúdo e Código)'],
+                datasets: [{
+                    label: 'Composição da Presença Digital',
+                    data: [15, 25, 60],
+                    backgroundColor: [
+                        '#008B8B', 
+                        '#4682B4', 
+                        '#A0A0A0' 
+                    ],
+                    hoverOffset: 10
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: {
+                                family: 'Inter'
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                  return label.join(' ');
+                                } else {
+                                  return label;
+                                }
+                            },
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                label += new Intl.NumberFormat('pt-BR', { style: 'percent', minimumFractionDigits: 0 }).format(context.parsed / 100);
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        function wrapLabel(label, maxCharsPerLine) {
+            if (label.length <= maxCharsPerLine) {
+                return label;
+            }
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + ' ' + word).length <= maxCharsPerLine || currentLine.length === 0) {
+                    currentLine = currentLine.length === 0 ? word : currentLine + ' ' + word;
+                } else {
+                    lines.push(currentLine);
+                    currentLine = word;
+                }
+            });
+            lines.push(currentLine);
+            return lines;
+        }
+
+        function createFunctionList(funcoes) {
+            let html = '<div class="mt-6"><h5 class="font-bold text-xl mb-3 text-gray-800">Para que Serve</h5><ul class="list-disc list-inside space-y-2 text-gray-600">';
+            funcoes.forEach(funcao => {
+                const parts = funcao.split(':');
+                html += `<li><span class="font-semibold text-gray-700">${parts[0]}</span>: ${parts.slice(1).join(':')}</li>`;
+            });
+            html += '</ul></div>';
+            return html;
+        }
+
+        function mostrarDetalhe(tipo) {
+            const detalhe = dados[tipo];
+            const painel = document.getElementById('painel-detalhe');
+            const botoes = document.querySelectorAll('#triangulo button');
+
+            botoes.forEach(btn => btn.classList.remove('active-btn'));
+            document.getElementById(`btn-${tipo}`).classList.add('active-btn');
+
+            let funcoesHtml = createFunctionList(detalhe.funcoes || []);
+
+            painel.innerHTML = `
+                <h4 class="text-2xl font-bold text-gray-900 mb-3">${detalhe.titulo}</h4>
+                <p class="text-lg text-accent font-medium mb-4">${detalhe.subtitulo}</p>
+                <p class="text-gray-700 mb-4">${detalhe.texto}</p>
+                ${funcoesHtml}
+                <p class="mt-6 text-sm italic text-gray-500">${detalhe.estrutura}</p>
+            `;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('composicaoChart').getContext('2d');
+            
+            chartConfig.data.labels = chartConfig.data.labels.map(label => wrapLabel(label, 16));
+            
+            new Chart(ctx, chartConfig);
+            
+            mostrarDetalhe('dominio'); 
+        });
+    </script>
+</body>
+</html>
