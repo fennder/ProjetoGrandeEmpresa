@@ -3,405 +3,515 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🚨 ULTIMATO DA REFORMA | Baiano MC Construção</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>Caminhão de Prêmios - Baianão 25 Anos</title>
+    <!-- Fontes Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
+        /* --- CSS GLOBAL & RESET --- */
+        :root {
+            --primary-blue: #004aad; /* Azul Institucional */
+            --accent-red: #d32f2f; /* Vermelho Natal */
+            --gold: #ffc107; /* Dourado Prêmios */
+            --white: #ffffff;
+            --text-dark: #333333;
+            --bg-light: #f4f7f6;
+            --green-whatsapp: #25d366;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0d0d0d; /* Darker black for construction feel */
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
+
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; }
+        
+        img { max-width: 100%; height: auto; display: block; }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- BOTÕES (CTA) --- */
+        .btn-cta {
+            display: inline-block;
+            background: linear-gradient(180deg, #25d366 0%, #128c7e 100%);
+            color: white;
+            padding: 18px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            border: 2px solid white;
+            cursor: pointer;
+        }
+
+        .btn-cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        .btn-cta i { margin-right: 10px; }
+
+        /* --- HEADER --- */
         header {
-            height: 170px;
-            background-image: url("CaminhaoBaianao.png");
-            background-position: center;
-            background-repeat: no-repeat;
+            background-color: var(--white);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        .text-shadow-gold {
-            text-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
+        
+        .header-content {
+            display: flex;
+            justify-content: center; /* Centralizado para dar foco */
+            align-items: center;
         }
-        .bg-construction {
-            background-color: #1a1a1a;
-            /* Placeholder for a construction/material background texture if needed, using dark gray */
+
+        @media (min-width: 768px) {
+            .header-content { justify-content: space-between; }
+            .desktop-contact { display: block !important; }
         }
-        .countdown-item {
-            background-color: rgba(255, 215, 0, 0.1); /* Gold tint for festive touch */
-            backdrop-filter: blur(5px);
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            text-decoration: none;
         }
-        .cta-final-button {
-            animation: pulse-green 1.5s infinite;
+        
+        .logo span { color: var(--accent-red); }
+
+        .desktop-contact {
+            display: none;
+            font-weight: bold;
+            color: var(--text-dark);
         }
-        @keyframes pulse-green {
-            0%, 100% {
-                box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7); 
+
+        /* --- HERO SECTION --- */
+        .hero {
+            /* Imagem de fundo genérica de construção/casa feliz - Substituir pela real se possível */
+            background: linear-gradient(rgba(0, 74, 173, 0.85), rgba(0, 74, 173, 0.95)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Partículas douradas (efeito simples) */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(var(--gold) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            background-color: var(--accent-red);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(255, 193, 7, 0.5);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        .hero h1 span { color: var(--gold); }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            border: 4px solid var(--gold);
+            background-color: #000;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* --- PRÊMIOS (DESIRE) --- */
+        .prizes {
+            padding: 60px 0;
+            text-align: center;
+            background-color: white;
+        }
+
+        .prizes h2 {
+            color: var(--primary-blue);
+            margin-bottom: 40px;
+            font-size: 1.8rem;
+        }
+
+        .prize-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .prize-card {
+            background: #fff;
+            padding: 30px 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-bottom: 5px solid var(--accent-red);
+            transition: transform 0.3s ease;
+        }
+
+        .prize-card:hover { transform: translateY(-10px); }
+
+        .prize-icon {
+            font-size: 3.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .prize-card h3 { font-size: 1.3rem; margin-bottom: 10px; color: #222; }
+        .prize-card p { font-size: 0.95rem; color: #666; }
+
+        /* --- COMO PARTICIPAR (MECHANICS) --- */
+        .steps {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .steps h2 { margin-bottom: 10px; }
+        .steps > .container > p { margin-bottom: 40px; font-size: 1.1rem; opacity: 0.9; }
+
+        .step-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .step-item {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .step-number {
+            background-color: var(--gold);
+            color: var(--primary-blue);
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.5rem;
+        }
+
+        .step-content h3 { font-size: 1.2rem; margin-bottom: 5px; }
+        .step-content p { font-size: 0.95rem; opacity: 0.9; margin: 0; }
+
+        .highlight-box {
+            background-color: var(--white);
+            color: var(--accent-red);
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin: 40px auto;
+            max-width: 600px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border: 2px dashed var(--accent-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        /* --- CONCURSO CULTURAL --- */
+        .contest-question {
+            padding: 60px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+        }
+
+        .question-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid #eee;
+        }
+
+        .question-text {
+            font-family: 'Montserrat', serif;
+            font-size: 1.5rem;
+            color: var(--accent-red);
+            font-weight: bold;
+            font-style: italic;
+            margin: 25px 0;
+            display: block;
+            background: #fff0f0;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #222;
+            color: #ccc;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        footer p { margin-bottom: 10px; }
+
+        /* --- FLOATING WHATSAPP --- */
+        .floating-wpp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--green-whatsapp);
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 2000;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .floating-wpp:hover {
+            transform: scale(1.1);
+        }
+
+        .floating-wpp::after {
+            content: '';
+            position: absolute;
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            background: var(--green-whatsapp);
+            opacity: 0.5;
+            z-index: -1;
+            animation: pulse-wpp 2s infinite;
+        }
+
+        @keyframes pulse-wpp {
+            0% { transform: scale(1); opacity: 0.6; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        /* --- RESPONSIVO --- */
+        @media (min-width: 768px) {
+            .step-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
             }
-            50% {
-                box-shadow: 0 0 0 10px rgba(52, 211, 153, 0);
+            .step-item {
+                flex: 1;
+                min-width: 280px;
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 20px;
             }
-        }
-        .christmas-accent {
-            color: #ef4444; /* Red-500 */
-        }
-        /* Estilo para a área de resultados do LLM */
-        .llm-result-card {
-            background-color: #000000;
-            border: 2px solid #FEF3C7; /* Yellow-100 */
+            .hero h1 { font-size: 3.5rem; }
         }
     </style>
-    <!-- Paleta: Preto (fundo), Vermelho (Natal e Urgência), Amarelo-Ouro (Luxo e 25 Anos), Verde (CTA). -->
-    <!-- Foco: Transformar R$ 300,00 na "chave" para a reforma dos sonhos. -->
 </head>
-<body class="bg-black text-white min-h-screen">
+<body>
 
-    <!-- Hero Section: REFORMA OU NADA! -->
-    <header class="w-full flex flex-col justify-center items-center text-center p-6 py-20 md:py-32 bg-construction border-b-4 border-yellow-400">
-        <div class="max-w-5xl">
-            <p class="text-2xl md:text-3xl font-black mb-4 christmas-accent uppercase">
-              <!--  25 ANOS: O NATAL DA GRANDE REFORMA 🛠️ -->
-            </p>
-            <h1 class="text-6xl md:text-8xl lg:text-9xl font-black uppercase leading-tight">
-                <!--<span class="text-yellow-400 text-shadow-gold block">Caminhão de</span>
-                <span class="text-white block mt-2">Produtos</span>-->
-            </h1>
-            <p class="text-xl md:text-3xl text-gray-300 mt-6 max-w-4xl mx-auto font-bold">
-             <!--   CHEGA DE ADIAR! Seu projeto de casa nova e acabamento premium começa AGORA. Preços de Black Friday valendo só <span class="christmas-accent">ATÉ DIA 15 DE DEZEMBRO</span>.-->
-            </p>
+    <!-- HEADER -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">BAIANÃO <span>MATERIAIS</span></a>
+            <div class="desktop-contact">
+                <i class="fab fa-whatsapp" style="color:var(--green-whatsapp)"></i> Fale conosco agora
+            </div>
         </div>
     </header>
 
-    <!-- Urgency Section (Countdown) -->
-    <section class="py-12 px-6 bg-black text-center border-b border-red-600">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-extrabold mb-6 christmas-accent uppercase">
-                🚨 TEMPO DE CONSTRUÇÃO LIMITADO! 🚨
-            </h2>
-            <div id="countdown" class="flex justify-center space-x-3 md:space-x-8 text-white">
-                <div class="p-3 md:p-6 rounded-lg countdown-item w-20 md:w-28 border border-yellow-400">
-                    <span id="days" class="text-4xl md:text-5xl font-extrabold">00</span>
-                    <span class="block text-xs md:text-base font-bold uppercase">Dias</span>
-                </div>
-                <div class="p-3 md:p-6 rounded-lg countdown-item w-20 md:w-28 border border-yellow-400">
-                    <span id="hours" class="text-4xl md:text-5xl font-extrabold">00</span>
-                    <span class="block text-xs md:text-base font-bold uppercase">Horas</span>
-                </div>
-                <div class="p-3 md:p-6 rounded-lg countdown-item w-20 md:w-28 border border-yellow-400">
-                    <span id="minutes" class="text-4xl md:text-5xl font-extrabold">00</span>
-                    <span class="block text-xs md:text-base font-bold uppercase">Minutos</span>
-                </div>
-                <div class="p-3 md:p-6 rounded-lg countdown-item w-20 md:w-28 border border-yellow-400">
-                    <span id="seconds" class="text-4xl md:text-5xl font-extrabold">00</span>
-                    <span class="block text-xs md:text-base font-bold uppercase">Segundos</span>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">🎅 EDIÇÃO ESPECIAL DE NATAL</div>
+            <h1>O CAMINHÃO DO BAIANÃO VAI REFORMAR A <span>SUA CASA!</span></h1>
+            <p>Mais de <strong>R$ 50 Mil em prêmios</strong>. Geladeira, TV, Reforma e muito mais. Não é sorteio, é a sua história que ganha!</p>
+            
+            <!-- VÍDEO DO YOUTUBE -->
+            <!-- IMPORTANTE: Substitua o ID 'SEU_ID_DO_VIDEO' abaixo pelo ID real do vídeo do YouTube quando o subir -->
+            <div class="video-wrapper">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/placeholder?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <!-- Placeholder visual caso não carregue o vídeo (para o preview) -->
+                <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); color:white; text-align:center; pointer-events:none;">
+                    <i class="fas fa-play-circle" style="font-size: 4rem; color: var(--gold);"></i>
+                    <p style="margin-top:10px;">Vídeo da Campanha</p>
                 </div>
             </div>
-            <p class="text-lg text-red-500 mt-6 font-black">
-                A OFERTA ACABA DIA 15 DE DEZEMBRO. NÃO CONTE COM A SORTE!
-            </p>
-        </div>
-    </section>
 
-    <!-- Regra de Ouro: A CHAVE PARA O DESCONTO -->
-    <section class="py-16 px-6 bg-red-800 text-center">
-        <div class="max-w-4xl mx-auto border-4 border-yellow-400 p-8 rounded-xl shadow-2xl bg-red-700">
-            <h2 class="text-4xl md:text-6xl font-black uppercase text-yellow-400 text-shadow-gold mb-4">
-                VOCÊ TEM O PODER DE REFORMAR!
-            </h2>
-            <p class="text-xl md:text-3xl font-bold text-white mb-6">
-                Para encher o seu <span class="text-yellow-400">CAMINHÃO DE PRODUTOS</span> com preço de OUTLET, sua nota precisa ser:
-            </p>
-            <div class="inline-block bg-black p-4 rounded-lg">
-                <p class="text-4xl md:text-5xl font-black text-white">
-                    COMPRAS ACIMA DE <span class="text-green-500">R$ 300,00</span>
-                </p>
-            </div>
-            <p class="text-lg text-gray-200 mt-6 font-bold">
-                É a condição mínima para você iniciar a obra e ter a casa que merece em 2026.
-            </p>
-        </div>
-    </section>
-    
-    <!-- Oportunidade da Reforma: Convocar o Cliente -->
-    <section class="py-20 px-6 bg-construction">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl font-extrabold text-center mb-12 text-yellow-400">
-                O QUE VOCÊ VAI CONSTRUIR AGORA? 🏠
-            </h2>
-            <p class="text-xl text-gray-300 text-center mb-10 max-w-4xl mx-auto font-semibold">
-                Imagine: Piso novo, banheiro reformado, churrasqueira instalada. Todos os materiais de acabamento e construção que você precisa para **MUDAR SUA VIDA** estão aqui com o preço mais baixo do ano. NÃO É SÓ DESCONTO, É A SUA CHANCE.
-            </p>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-
-                <!-- Exemplo 1: Pisos e Revestimentos -->
-                <div class="p-4 rounded-xl border border-gray-800 bg-gray-900">
-                    <span class="text-5xl block mb-3">🧱</span>
-                    <h3 class="text-xl font-bold text-white mb-1">Pisos e Acabamento</h3>
-                    <p class="text-sm text-gray-400 mb-2">Renove 100% da sua área social.</p>
-                    <span class="text-3xl font-black text-yellow-400">DESCONTO LIBERADO*</span>
-                </div>
-
-                <!-- Exemplo 2: Tintas e Cores -->
-                <div class="p-4 rounded-xl border border-gray-800 bg-gray-900">
-                    <span class="text-5xl block mb-3">🎨</span>
-                    <h3 class="text-xl font-bold text-white mb-1">Tintas Premium</h3>
-                    <p class="text-sm text-gray-400 mb-2">Qualidade e cores para o Natal.</p>
-                    <span class="text-3xl font-black text-yellow-400">DESCONTO LIBERADO*</span>
-                </div>
-
-                <!-- Exemplo 3: Ferramentas -->
-                <div class="p-4 rounded-xl border border-gray-800 bg-gray-900">
-                    <span class="text-5xl block mb-3">🔩</span>
-                    <h3 class="text-xl font-bold text-white mb-1">Ferramentas Essenciais</h3>
-                    <p class="text-sm text-gray-400 mb-2">Tudo para sua obra não parar.</p>
-                    <span class="text-3xl font-black text-yellow-400">DESCONTO LIBERADO*</span>
-                </div>
-
-                <!-- Exemplo 4: Hidráulica e Elétrica -->
-                <div class="p-4 rounded-xl border border-gray-800 bg-gray-900">
-                    <span class="text-5xl block mb-3">🚿</span>
-                    <h3 class="text-xl font-bold text-white mb-1">Hidráulica/Elétrica</h3>
-                    <p class="text-sm text-gray-400 mb-2">Segurança e durabilidade garantidas.</p>
-                    <span class="text-3xl font-black text-yellow-400">DESCONTO LIBERADO*</span>
-                </div>
-            </div>
-            <p class="text-sm text-gray-500 text-center mt-6">*Preços de Black Friday válidos somente para notas fiscais a partir de R$ 300,00.</p>
-        </div>
-    </section>
-
-    <!-- Final CTA Section: CHAMADO À AÇÃO EXTREMA -->
-    <section class="py-24 px-6 text-center bg-red-600">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-black text-yellow-400 text-shadow-gold mb-6 uppercase">
-                PARE DE PENSAR E COMECE A CONSTRUIR!
-            </h2>
-            <p class="text-xl text-white mb-10 font-bold">
-                O Baianão só faz isso uma vez por ano. O prazo expira dia 15. Clique, monte seu orçamento de R$ 300,00 e garanta o desconto para sua REFORMA.
-            </p>
-            <a href="https://wa.me/5511999998888?text=URGENTE!%20Vim%20pela%20promoção%20de%20Natal%20acima%20de%20R%24300%2C00.%20Quero%20fazer%20minha%20reforma%20agora!" 
-               target="_blank" 
-               class="inline-block bg-green-500 text-black text-3xl md:text-4xl font-black py-6 px-16 rounded-2xl shadow-2xl transition-transform transform hover:scale-105 hover:bg-green-400 border-4 border-green-700 cta-final-button">
-                CLIQUE AQUI E ORGANIZE MINHA OBRA 📲
+            <a href="https://wa.me/55999999999?text=Oi,+vi+o+anuncio+do+Caminhao+e+quero+fazer+um+orcamento!" class="btn-cta">
+                <i class="fab fa-whatsapp"></i> QUERO PARTICIPAR
             </a>
-            <p class="text-sm text-gray-200 mt-6 font-black">DIA 15 DE DEZEMBRO É O LIMITE. NÃO HAVERÁ SEGUNDA CHANCE.</p>
+            <p style="margin-top: 15px; font-size: 0.85rem; opacity: 0.8;">Oferta válida por tempo limitado. Clique para falar com um vendedor.</p>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-10 px-6 text-center text-gray-500 border-t border-gray-800">
-        <p>© 2025 Baiano MC Materiais de Construção. Celebração 25 Anos.</p>
+    <!-- PRÊMIOS -->
+    <section class="prizes">
+        <div class="container">
+            <h2>O Presente Perfeito para o Seu Lar 🎁</h2>
+            <div class="prize-grid">
+                <div class="prize-card">
+                    <div class="prize-icon"><i class="fas fa-paint-roller"></i></div>
+                    <h3>Reforma Completa</h3>
+                    <p>Materiais de construção e acabamento para renovar sua casa em 2026.</p>
+                </div>
+                <div class="prize-card">
+                    <div class="prize-icon"><i class="fas fa-truck-moving"></i></div>
+                    <h3>Caminhão de Prêmios</h3>
+                    <p>Entrega especial na sua porta com toda a festa que você merece.</p>
+                </div>
+                <div class="prize-card">
+                    <div class="prize-icon"><i class="fas fa-tv"></i></div>
+                    <h3>Eletros Novos</h3>
+                    <p>Geladeira, TV e muito mais para equipar e modernizar seu lar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMO PARTICIPAR -->
+    <section class="steps">
+        <div class="container">
+            <h2>Como ganhar o Caminhão?</h2>
+            <p>É muito simples. Siga o passo a passo para concorrer:</p>
+            
+            <div class="step-container">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Compre</h3>
+                        <p>Faça compras a partir de <strong>R$ 300,00</strong> em nossa loja física ou pelo WhatsApp.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Receba o Cupom</h3>
+                        <p>Garanta seu cupom oficial da campanha de aniversário de 25 Anos.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Responda</h3>
+                        <p>Escreva sua melhor história respondendo à pergunta da campanha.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <i class="fas fa-exclamation-circle" style="font-size: 1.5rem;"></i>
+                <span>Não é sorteio! A história mais criativa leva tudo!</span>
+            </div>
+
+            <a href="https://wa.me/55999999999?text=Oi,+quero+fazer+um+orcamento+de+300+reais+para+ganhar+o+cupom!" class="btn-cta" style="background: white; color: var(--primary-blue); border: none;">
+                <i class="fab fa-whatsapp"></i> FAZER ORÇAMENTO AGORA
+            </a>
+        </div>
+    </section>
+
+    <!-- PERGUNTA -->
+    <section class="contest-question">
+        <div class="container">
+            <div class="question-card">
+                <h3 style="color: var(--text-dark);">A pergunta que vale uma casa nova:</h3>
+                <span class="question-text">"Por que eu mereço ganhar o caminhão de prêmios do Baianão?"</span>
+                <p>Prepare sua criatividade! Capriche na resposta, deposite na urna e torça muito.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p style="font-size: 1.2rem; font-weight: bold; color: white;">BAIANÃO MATERIAIS DE CONSTRUÇÃO</p>
+            <p>25 Anos construindo sonhos com você.</p>
+            <br>
+            <p style="font-size: 0.75rem; opacity: 0.5;">Consulte o regulamento completo na loja. Imagens meramente ilustrativas. Campanha válida para compras acima de R$ 300,00.</p>
+        </div>
     </footer>
 
-    <script>
-        // Configuração do Cronômetro para 15 de Dezembro de 2025
-        (function() {
-            const targetDate = new Date("Dec 15, 2025 23:59:59").getTime();
-
-            const countdownElement = document.getElementById('countdown');
-            if (!countdownElement) return;
-
-            const daysEl = document.getElementById('days');
-            const hoursEl = document.getElementById('hours');
-            const minutesEl = document.getElementById('minutes');
-            const secondsEl = document.getElementById('seconds');
-
-            const timer = setInterval(function() {
-                const now = new Date().getTime();
-                const distance = targetDate - now;
-
-                if (distance < 0) {
-                    clearInterval(timer);
-                    countdownElement.innerHTML = '<h3 class="text-4xl font-extrabold text-red-700">OFERTA EXPIRADA!</h3>';
-                    return;
-                }
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                daysEl.innerText = String(days).padStart(2, '0');
-                hoursEl.innerText = String(hours).padStart(2, '0');
-                minutesEl.innerText = String(minutes).padStart(2, '0');
-                secondsEl.innerText = String(seconds).padStart(2, '0');
-
-            }, 1000);
-        })();
-
-
-        // --- Função de Integração Gemini API ---
-
-        /**
-         * Gera o plano de reforma com materiais e etapas usando a Gemini API.
-         * @param {string} prompt Descrição do projeto de reforma fornecida pelo usuário.
-         * @returns {Promise<Object|null>} Objeto JSON estruturado com o plano de reforma, ou null em caso de erro.
-         */
-        async function callGeminiApi(prompt) {
-            const systemPrompt = "Você é um assistente de planejamento de obras e reformas do Baiano MC, uma loja de materiais de construção e acabamento. Sua tarefa é analisar o pedido do cliente e gerar um plano de reforma estruturado em JSON. Seja prático e direto, sugerindo materiais de construção comuns (pisos, tintas, cimento, louças, etc.) e as etapas básicas da obra.";
-            const userQuery = `Gere um plano de reforma e lista de materiais essenciais baseado na seguinte descrição: ${prompt}`;
-            const apiKey = ""; // Será fornecida pelo ambiente em tempo de execução
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-
-            // Esquema JSON para garantir a resposta estruturada
-            const responseSchema = {
-                type: "OBJECT",
-                properties: {
-                    "tituloProjeto": { "type": "STRING", "description": "Um título atraente para o projeto de reforma." },
-                    "resumoMotivacional": { "type": "STRING", "description": "Um resumo conciso (1-2 frases) e motivacional sobre a reforma." },
-                    "materiaisSugeridos": {
-                        "type": "ARRAY",
-                        "items": { "type": "STRING", "description": "Material essencial para a obra (ex: '30m² de Porcelanato Retificado', '10 Sacos de Cimento Votorantim')." }
-                    },
-                    "etapasChave": {
-                        "type": "ARRAY",
-                        "items": { "type": "STRING", "description": "Passos principais para a execução da reforma (ex: 'Preparação do contrapiso')." }
-                    }
-                },
-                required: ["tituloProjeto", "resumoMotivacional", "materiaisSugeridos", "etapasChave"]
-            };
-
-            const payload = {
-                contents: [{ parts: [{ text: userQuery }] }],
-                systemInstruction: { parts: [{ text: systemPrompt }] },
-                config: {
-                    responseMimeType: "application/json",
-                    responseSchema: responseSchema
-                }
-            };
-
-            let response = null;
-            let maxRetries = 5;
-            let delay = 1000;
-
-            for (let i = 0; i < maxRetries; i++) {
-                try {
-                    response = await fetch(apiUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-
-                    if (response.ok) {
-                        break; // Sucesso, sai do loop
-                    } else if (response.status === 429) {
-                        // Too Many Requests - Implementa Backoff Exponencial
-                        if (i < maxRetries - 1) {
-                            await new Promise(resolve => setTimeout(resolve, delay));
-                            delay *= 2;
-                        } else {
-                            throw new Error("Erro de taxa de limite (429) após múltiplas tentativas.");
-                        }
-                    } else {
-                        // Outros erros HTTP
-                        throw new Error(`Erro HTTP: ${response.status}`);
-                    }
-                } catch (error) {
-                    if (i === maxRetries - 1) {
-                        console.error("Erro final ao chamar a API Gemini:", error);
-                        return null;
-                    }
-                }
-            }
-
-            if (!response || !response.ok) return null;
-
-            const result = await response.json();
-            const jsonText = result.candidates?.[0]?.content?.parts?.[0]?.text;
-
-            if (jsonText) {
-                try {
-                    return JSON.parse(jsonText);
-                } catch (e) {
-                    console.error("Erro ao fazer parse do JSON da API:", e);
-                    return null;
-                }
-            }
-            return null;
-        }
-
-        /**
-         * Função principal para iniciar o plano e atualizar a UI.
-         */
-        async function generateReformPlan() {
-            const descriptionEl = document.getElementById('project-description');
-            const loadingEl = document.getElementById('loading-indicator');
-            const resultsAreaEl = document.getElementById('results-area');
-            const generateBtn = document.getElementById('generate-plan-btn');
-
-            const prompt = descriptionEl.value.trim();
-
-            if (prompt.length < 15) {
-                alertMessage("Por favor, descreva seu projeto com mais detalhes (mínimo 15 caracteres).");
-                return;
-            }
-
-            // UI: Iniciar carregamento
-            loadingEl.classList.remove('hidden');
-            resultsAreaEl.classList.add('hidden');
-            generateBtn.disabled = true;
-            generateBtn.textContent = 'Gerando Plano...';
-
-            const plan = await callGeminiApi(prompt);
-
-            // UI: Finalizar carregamento
-            loadingEl.classList.add('hidden');
-            generateBtn.disabled = false;
-            generateBtn.textContent = 'GERAR MEU PLANO DE REFORMA';
-
-            if (plan) {
-                updateResultsUI(plan, prompt);
-                resultsAreaEl.classList.remove('hidden');
-            } else {
-                alertMessage("Ops! Não foi possível gerar o plano. Tente uma descrição diferente.");
-                resultsAreaEl.classList.add('hidden');
-            }
-        }
-
-        /**
-         * Atualiza a interface com os resultados do plano de reforma.
-         * @param {Object} plan Objeto JSON com o plano.
-         * @param {string} originalPrompt O prompt original do usuário.
-         */
-        function updateResultsUI(plan, originalPrompt) {
-            document.getElementById('project-title').textContent = plan.tituloProjeto;
-            document.getElementById('project-motto').textContent = plan.resumoMotivacional;
-            
-            const materialsList = document.getElementById('materials-list');
-            materialsList.innerHTML = '';
-            plan.materiaisSugeridos.forEach(item => {
-                const li = document.createElement('li');
-                li.textContent = item;
-                materialsList.appendChild(li);
-            });
-
-            const stepsList = document.getElementById('steps-list');
-            stepsList.innerHTML = '';
-            plan.etapasChave.forEach(step => {
-                const li = document.createElement('li');
-                li.textContent = step;
-                stepsList.appendChild(li);
-            });
-
-            // Atualiza o link do WhatsApp com o título do projeto para rastreamento
-            const projectTitle = encodeURIComponent(plan.tituloProjeto.substring(0, 50));
-            const newWhatsappLink = `https://wa.me/5511999998888?text=URGENTE!%20Meu%20projeto%20é%20${projectTitle}%20e%20preciso%20montar%20meu%20carrinho%20de%20R%24300%2C00%20agora!`;
-            document.getElementById('whatsapp-cta-project').href = newWhatsappLink;
-        }
-        
-        /**
-         * Exibe uma mensagem de erro ou alerta.
-         * @param {string} message A mensagem a ser exibida.
-         */
-        function alertMessage(message) {
-            // Implementação de um modal ou mensagem customizada, substituindo o alert()
-            // Por simplicidade na Landing Page, usaremos console.error, mas um modal seria ideal.
-            console.error("ALERTA: " + message);
-            const errorEl = document.getElementById('loading-indicator');
-            errorEl.classList.remove('hidden');
-            errorEl.textContent = "ALERTA: " + message;
-            setTimeout(() => { errorEl.classList.add('hidden'); }, 4000);
-        }
-    </script>
+    <!-- WHATSAPP FLUTUANTE -->
+    <a href="https://wa.me/55999999999?text=Ola,+vi+o+video+do+caminhao+e+quero+comprar!" class="floating-wpp" target="_blank" title="Falar no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
 </body>
 </html>
