@@ -3,182 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Black Friday Imperdível - Baiano MC</title>
+    <title>Black Friday | Baiano MC Store</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Black, Gold & White -->
-    <!-- Application Structure Plan: A estrutura é um funil de vendas vertical de página única, projetado para máxima conversão. Começa com um "Hero Section" de alto impacto para capturar a atenção com a oferta principal. Segue para uma seção de "Problema" para criar empatia. Depois, a seção "Solução/Oferta" detalha o produto e seus benefícios. Uma seção de "Urgência" com um cronômetro de contagem regressiva cria escassez. Finalmente, uma seção de "CTA Final" reforça a oferta e direciona para a única ação desejada: clicar no link do WhatsApp. Esta estrutura AIDA (Atenção, Interesse, Desejo, Ação) é ideal para uma landing page focada em conduzir o usuário a uma decisão rápida. -->
-    <!-- Visualization & Content Choices: Informação (Oferta Black Friday) -> Objetivo (Persuadir) -> Apresentação (Tipografia grande e ousada, HTML/Tailwind) -> Justificativa (Estabelecer a oferta imediatamente). Informação (Problemas do Cliente) -> Objetivo (Criar Empatia) -> Apresentação (Cards de "dor", HTML/Tailwind Grid) -> Justificativa (Fazer o usuário se sentir compreendido). Informação (Detalhes da Mentoria) -> Objetivo (Explicar Valor) -> Apresentação (Lista de benefícios com ícones Unicode, HTML/CSS) -> Justificativa (Dividir a oferta em partes tangíveis). Informação (Escassez) -> Objetivo (Ação Imediata) -> Apresentação (Cronômetro com JavaScript) -> Interação (Atualização dinâmica) -> Justificativa (Driver de conversão chave). Informação (CTA) -> Objetivo (Converter) -> Apresentação (Botão grande e contrastante, HTML/Tailwind) -> Interação (Clique) -> Justificativa (Objetivo principal da página). -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
         .text-shadow-gold {
-            text-shadow: 0 2px 4px rgba(251, 191, 36, 0.5);
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
+        }
+        .product-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
         }
         .countdown-item {
-            background-color: rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(5px);
         }
     </style>
+    <!-- Chosen Palette: Black, White, and Gold (Yellow-400) -->
+    <!-- Application Structure Plan: A estrutura segue o modelo funil de vendas (AIDA): 1. Atenção (Hero Section com CTA imediato), 2. Interesse (Product Showcase com preços de impacto), 3. Desejo (Value Proposition sobre qualidade e exclusividade), 4. Ação/Urgência (Cronômetro e CTA final). O foco é mover o cliente do topo da página para a ação no WhatsApp, repetindo o CTA em pontos estratégicos (após o hero, após o showcase e no final). -->
+    <!-- Visualization & Content Choices: Informação (Ofertas da Loja) -> Objetivo (Impactar com preço) -> Apresentação (Cards de produto simulados com "etiquetas" de preço, HTML/Tailwind Grid) -> Justificativa (Simular uma vitrine de loja de forma responsiva). Informação (Urgência) -> Objetivo (Ação Imediata) -> Apresentação (Cronômetro com JavaScript) -> Interação (Atualização dinâmica) -> Justificativa (Criar escassez e apressar a decisão de compra). Informação (CTA) -> Objetivo (Conversão) -> Apresentação (Botão grande, contrastante e animado) -> Justificativa (Objetivo único da landing page: clique no WhatsApp). -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 </head>
-<body class="bg-black text-white overflow-x-hidden">
+<body class="bg-black text-white min-h-screen">
 
     <!-- Hero Section -->
-    <header class="min-h-screen w-full flex flex-col justify-center items-center text-center p-6 bg-gradient-to-b from-gray-900 to-black">
-        <div class="absolute top-8">
-            <h2 class="text-3xl font-bold text-yellow-400">Baiano MC</h2>
-        </div>
-        <div class="max-w-4xl">
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black uppercase">
-                <span class="text-yellow-400 text-shadow-gold">Black Friday</span>
-                <span class="block text-white mt-2">Exclusiva</span>
+    <header class="w-full flex flex-col justify-center items-center text-center p-6 py-20 md:py-32 bg-gray-900 border-b-4 border-yellow-400">
+        <div class="max-w-5xl">
+            <h1 class="text-6xl md:text-8xl lg:text-9xl font-black uppercase leading-tight">
+                <span class="text-yellow-400 text-shadow-gold block">BLACK FRIDAY</span>
+                <span class="text-white block mt-2">DO MILHÃO</span>
             </h1>
-            <p class="text-xl md:text-3xl text-gray-300 mt-6 max-w-2xl mx-auto">
-                A sua chance de destravar seu marketing e triplicar suas vendas com minha mentoria completa.
+            <p class="text-xl md:text-3xl text-gray-300 mt-6 max-w-3xl mx-auto font-bold">
+                Toda a coleção Baiano MC Store com descontos que você nunca viu. Peças limitadas!
             </p>
-            <p class="text-4xl md:text-5xl font-bold text-yellow-400 mt-8 text-shadow-gold">
-                50% DE DESCONTO
-            </p>
-            <a href="https://wa.me/5511999998888?text=Olá!%20Tenho%20interesse%20na%20oferta%20da%20Black%20Friday." 
+            <a href="https://wa.me/5511999998888?text=Olá!%20Tenho%20interesse%20nas%20ofertas%20de%20Black%20Friday%20da%20Baiano%20MC." 
                target="_blank" 
-               class="inline-block bg-green-500 text-white text-xl md:text-3xl font-bold py-5 px-10 rounded-lg mt-10 shadow-lg transition-transform transform hover:scale-105 hover:bg-green-600 animate-pulse">
-                QUERO SABER MAIS 📲
+               class="inline-block bg-green-500 text-black text-2xl md:text-3xl font-black py-4 px-10 rounded-xl mt-10 shadow-xl transition-transform transform hover:scale-105 hover:bg-green-400 animate-pulse border-2 border-green-700">
+                EU QUERO OS PREÇOS SECRETO! 📲
             </a>
-            <p class="text-sm text-gray-400 mt-4">Vagas limitadíssimas!</p>
+            <p class="text-sm text-gray-400 mt-4">Clique e receba o catálogo de ofertas exclusivo no WhatsApp.</p>
         </div>
     </header>
 
-    <!-- Seção de Problema -->
-    <section class="py-20 px-6 bg-gray-900">
-        <div class="max-w-5xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-extrabold mb-6">
-                Você se sente <span class="text-yellow-400">travado</span>?
+    <!-- Urgency Section (Countdown) -->
+    <section class="py-12 px-6 bg-black text-center border-b border-gray-800">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-6 text-yellow-400 uppercase">
+                ⏰ A Black Friday termina em... ⏰
             </h2>
-            <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-12">
-                Muitos empreendedores enfrentam os mesmos desafios. Esta seção destaca os problemas mais comuns que minha mentoria resolve. Veja se algum deles parece familiar para você.
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-black p-8 rounded-xl shadow-2xl border border-gray-800">
-                    <span class="text-4xl mb-4 block">😰</span>
-                    <h3 class="text-2xl font-bold mb-3">Não sabe por onde começar</h3>
-                    <p class="text-gray-400">Sente que tem muito o que fazer, mas não consegue definir uma estratégia clara de marketing.</p>
+            <div id="countdown" class="flex justify-center space-x-3 md:space-x-8 text-white">
+                <div class="p-3 md:p-6 rounded-lg countdown-item w-20 md:w-28 border border-yellow-400">
+                    <span id="days" class="text-4xl md:text-5xl font-extrabold">00</span>
+                    <span class="block text-xs md:text-base font-bold uppercase">Dias</span>
                 </div>
-                <div class="bg-black p-8 rounded-xl shadow-2xl border border-gray-800">
-                    <span class="text-4xl mb-4 block">💸</span>
-                    <h3 class="text-2xl font-bold mb-3">Dinheiro indo pelo ralo</h3>
-                    <p class="text-gray-400">Investe em anúncios e tráfego pago, mas não vê o retorno esperado em vendas reais.</p>
+                <div class="p-3 md:p-6 rounded-lg countdown-item w-20 md:w-28 border border-yellow-400">
+                    <span id="hours" class="text-4xl md:text-5xl font-extrabold">00</span>
+                    <span class="block text-xs md:text-base font-bold uppercase">Horas</span>
                 </div>
-                <div class="bg-black p-8 rounded-xl shadow-2xl border border-gray-800">
-                    <span class="text-4xl mb-4 block">👻</span>
-                    <h3 class="text-2xl font-bold mb-3">Posta e ninguém vê</h3>
-                    <p class="text-gray-400">Cria conteúdo para o Instagram, mas o engajamento é baixo e não atrai clientes.</p>
+                <div class="p-3 md:p-6 rounded-lg countdown-item w-20 md:w-28 border border-yellow-400">
+                    <span id="minutes" class="text-4xl md:text-5xl font-extrabold">00</span>
+                    <span class="block text-xs md:text-base font-bold uppercase">Minutos</span>
+                </div>
+                <div class="p-3 md:p-6 rounded-lg countdown-item w-20 md:w-28 border border-yellow-400">
+                    <span id="seconds" class="text-4xl md:text-5xl font-extrabold">00</span>
+                    <span class="block text-xs md:text-base font-bold uppercase">Segundos</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Seção da Solução / Oferta -->
+    <!-- Product Showcase (Simulated) -->
     <section class="py-20 px-6">
-        <div class="max-w-5xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-extrabold mb-4">
-                A Solução: <span class="text-yellow-400">Mentoria Destrava Digital</span>
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-extrabold text-center mb-12">
+                AS PEÇAS MAIS DESEJADAS
             </h2>
-            <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-10">
-                Nesta seção, você vai descobrir o que está incluso na oferta de Black Friday. É um programa completo para pegar na sua mão e te levar do zero aos resultados que você tanto busca.
+            <p class="text-lg text-gray-400 text-center mb-10 max-w-4xl mx-auto">
+                Confira alguns exemplos do que te espera. A linha completa de produtos (Camisetas, Bonés e Acessórios) está com preços de **OUTLET** por tempo limitado!
             </p>
 
-            <div class="bg-gray-900 border border-yellow-400 rounded-xl shadow-2xl p-8 md:p-12 max-w-3xl mx-auto mb-12">
-                <h3 class="text-2xl font-bold mb-4">O que você vai levar <span class="text-yellow-400">HOJE</span>:</h3>
-                <ul class="text-left space-y-4 text-lg md:text-xl text-gray-200">
-                    <li class="flex items-center">
-                        <span class="text-green-500 mr-3">✔</span> 4 Encontros de Mentoria em Grupo ao Vivo
-                    </li>
-                    <li class="flex items-center">
-                        <span class="text-green-500 mr-3">✔</span> Análise de Perfil e Estratégia Individual
-                    </li>
-                    <li class="flex items-center">
-                        <span class="text-green-500 mr-3">✔</span> Acesso à Comunidade VIP no WhatsApp
-                    </li>
-                    <li class="flex items-center">
-                        <span class="text-green-500 mr-3">✔</span> Gravações de todos os encontros
-                    </li>
-                    <li class="flex items-center">
-                        <span class="text-green-500 mr-3">✔</span> <span class="font-bold">BÔNUS:</span> Curso Rápido de Tráfego Pago
-                    </li>
-                </ul>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Card 1: Camiseta Exclusiva -->
+                <div class="product-card bg-gray-900 p-6 rounded-2xl border border-gray-800 flex flex-col items-center">
+                    <div class="bg-gray-800 w-full h-48 rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-7xl">👕</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Camiseta Ostentação V.2</h3>
+                    <p class="text-gray-400">Malha premium e estampa em relevo.</p>
+                    <div class="mt-4 flex flex-col items-center">
+                        <span class="text-lg text-red-500 line-through">R$ 159,90</span>
+                        <span class="text-4xl font-black text-yellow-400">R$ 79,90</span>
+                    </div>
+                    <a href="https://wa.me/5511999998888?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Camiseta%20Ostentação%20na%20Black%20Friday." 
+                       target="_blank" 
+                       class="mt-6 w-full text-center bg-green-500 text-black font-bold py-3 rounded-lg hover:bg-green-600 transition">
+                        Comprar via Zap
+                    </a>
+                </div>
+
+                <!-- Card 2: Boné Signature -->
+                <div class="product-card bg-gray-900 p-6 rounded-2xl border border-gray-800 flex flex-col items-center">
+                    <div class="bg-gray-800 w-full h-48 rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-7xl">🧢</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Boné Signature Snapback</h3>
+                    <p class="text-gray-400">Modelo exclusivo, aba curva, bordado 3D.</p>
+                    <div class="mt-4 flex flex-col items-center">
+                        <span class="text-lg text-red-500 line-through">R$ 129,90</span>
+                        <span class="text-4xl font-black text-yellow-400">R$ 64,90</span>
+                    </div>
+                    <a href="https://wa.me/5511999998888?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Boné%20Signature%20na%20Black%20Friday." 
+                       target="_blank" 
+                       class="mt-6 w-full text-center bg-green-500 text-black font-bold py-3 rounded-lg hover:bg-green-600 transition">
+                        Comprar via Zap
+                    </a>
+                </div>
+
+                <!-- Card 3: Acessório Chaveiro -->
+                <div class="product-card bg-gray-900 p-6 rounded-2xl border border-gray-800 flex flex-col items-center">
+                    <div class="bg-gray-800 w-full h-48 rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-7xl">🔑</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Chaveiro Gold</h3>
+                    <p class="text-gray-400">Acessório de metal, banhado a ouro (simulação).</p>
+                    <div class="mt-4 flex flex-col items-center">
+                        <span class="text-lg text-red-500 line-through">R$ 79,90</span>
+                        <span class="text-4xl font-black text-yellow-400">R$ 39,90</span>
+                    </div>
+                    <a href="https://wa.me/5511999998888?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Chaveiro%20na%20Black%20Friday." 
+                       target="_blank" 
+                       class="mt-6 w-full text-center bg-green-500 text-black font-bold py-3 rounded-lg hover:bg-green-600 transition">
+                        Comprar via Zap
+                    </a>
+                </div>
             </div>
 
-            <div class="text-center">
-                <p class="text-2xl text-gray-400 line-through">De R$ 1.997,00</p>
-                <p class="text-lg text-white mb-2">Por apenas:</p>
-                <h3 class="text-6xl md:text-7xl font-black text-yellow-400 text-shadow-gold mb-8">
-                    12x de R$ 99<span class="text-4xl md:text-5xl">,70</span>
-                </h3>
-                <a href="https://wa.me/5511999998888?text=Olá!%20Quero%20garantir%20minha%20vaga%20na%20mentoria%20com%20desconto." 
+            <!-- CTA em linha após o showcase -->
+            <div class="text-center mt-16">
+                <a href="https://wa.me/5511999998888?text=Olá!%20Quero%20o%20catálogo%20COMPLETO%20de%20ofertas%20da%20Black%20Friday%20Baiano%20MC." 
                    target="_blank" 
-                   class="inline-block bg-green-500 text-white text-2xl md:text-3xl font-bold py-5 px-12 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:bg-green-600">
-                    GARANTIR MINHA VAGA AGORA 📲
+                   class="inline-block bg-yellow-400 text-black text-xl md:text-2xl font-black py-4 px-10 rounded-xl shadow-lg transition-transform transform hover:scale-105 hover:bg-yellow-500">
+                    VER MAIS ITENS E TAMANHOS NO WHATSAPP
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Seção de Urgência (Cronômetro) -->
-    <section class="py-20 px-6 bg-yellow-400 text-black">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-black mb-8">
-                ⚠️ A OFERTA TERMINA EM... ⚠️
+    <!-- Value Proposition Section -->
+    <section class="py-20 px-6 bg-gray-900">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-extrabold text-center mb-10 text-yellow-400">
+                POR QUE COMPRAR AGORA?
             </h2>
-            <div id="countdown" class="flex justify-center space-x-2 md:space-x-6">
-                <div class="p-4 md:p-6 rounded-lg countdown-item w-20 md:w-32">
-                    <span id="days" class="text-4xl md:text-6xl font-extrabold">00</span>
-                    <span class="block text-sm md:text-lg font-bold uppercase">Dias</span>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="p-6 rounded-xl border border-gray-800">
+                    <span class="text-4xl block mb-3">💎</span>
+                    <h3 class="text-2xl font-bold mb-2">Exclusividade</h3>
+                    <p class="text-gray-400">Peças de edição limitada. Quando acaba, não volta mais. Vista o que só os verdadeiros vestem.</p>
                 </div>
-                <div class="p-4 md:p-6 rounded-lg countdown-item w-20 md:w-32">
-                    <span id="hours" class="text-4xl md:text-6xl font-extrabold">00</span>
-                    <span class="block text-sm md:text-lg font-bold uppercase">Horas</span>
+                <div class="p-6 rounded-xl border border-gray-800">
+                    <span class="text-4xl block mb-3">🛡️</span>
+                    <h3 class="text-2xl font-bold mb-2">Qualidade Premium</h3>
+                    <p class="text-gray-400">Materiais de alta durabilidade e acabamento impecável. Investimento que dura anos.</p>
                 </div>
-                <div class="p-4 md:p-6 rounded-lg countdown-item w-20 md:w-32">
-                    <span id="minutes" class="text-4xl md:text-6xl font-extrabold">00</span>
-                    <span class="block text-sm md:text-lg font-bold uppercase">Minutos</span>
-                </div>
-                <div class="p-4 md:p-6 rounded-lg countdown-item w-20 md:w-32">
-                    <span id="seconds" class="text-4xl md:text-6xl font-extrabold">00</span>
-                    <span class="block text-sm md:text-lg font-bold uppercase">Segundos</span>
+                <div class="p-6 rounded-xl border border-gray-800">
+                    <span class="text-4xl block mb-3">📦</span>
+                    <h3 class="text-2xl font-bold mb-2">Entrega Rápida</h3>
+                    <p class="text-gray-400">Processamos seu pedido em tempo recorde para que você ostente o quanto antes.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Final -->
-    <section class="py-24 px-6 text-center bg-gray-900">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="text-3xl md:text-5xl font-extrabold mb-6">
-                Essa é a sua <span class="text-yellow-400">ÚNICA CHANCE</span> no ano.
+    <!-- Final CTA Section -->
+    <section class="py-24 px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-6">
+                É AGORA OU NUNCA!
             </h2>
             <p class="text-xl text-gray-300 mb-10">
-                Depois que o cronômetro zerar, o preço volta ao normal. Clique no botão abaixo e fale comigo diretamente no WhatsApp para tirar suas dúvidas e garantir sua vaga.
+                O estoque está acabando e a chance de levar a sua peça Baiano MC por esse preço nunca mais se repetirá. Clique e garanta a sua no WhatsApp!
             </p>
-            <a href="https://wa.me/5511999998888?text=Olá!%20Tenho%20dúvidas%20sobre%20a%20mentoria%20da%20Black%20Friday." 
+            <a href="https://wa.me/5511999998888?text=Olá!%20Cheguei%20pelo%20site%20e%20quero%20minha%20peça%20de%20Black%20Friday%20agora!" 
                target="_blank" 
-               class="inline-block bg-green-500 text-white text-2xl md:text-3xl font-bold py-5 px-12 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:bg-green-600 animate-pulse">
-                FALAR COM SUPORTE 📲
+               class="inline-block bg-green-500 text-black text-3xl md:text-4xl font-black py-6 px-16 rounded-2xl shadow-2xl transition-transform transform hover:scale-105 hover:bg-green-400 border-4 border-green-700">
+                GARANTIR MINHA PEÇA (VIA WHATSAPP) 🚀
             </a>
+            <p class="text-sm text-gray-500 mt-6">Atendimento 24h para Black Friday. Não perca tempo!</p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="py-10 px-6 text-center text-gray-500 border-t border-gray-800">
-        <p>© 2025 Baiano MC. Todos os direitos reservados.</p>
-        <p class="text-sm">Esta é uma oferta especial de Black Friday e pode ser encerrada a qualquer momento.</p>
+        <p>© 2025 Baiano MC Store. Black Friday - Ofertas válidas até o final do cronômetro ou enquanto durarem os estoques.</p>
     </footer>
 
     <script>
         (function() {
+            // Define a data final da Black Friday (Exemplo: 29 de Novembro do ano atual)
             const targetDate = new Date("Nov 29, 2025 00:00:00").getTime();
 
             const countdownElement = document.getElementById('countdown');
