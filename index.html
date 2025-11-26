@@ -108,8 +108,7 @@
 
         /* --- HERO SECTION --- */
         .hero {
-            /* Imagem de fundo genérica de construção/casa feliz - Substituir pela real se possível */
-            /*background: linear-gradient(rgba(0, 74, 173, 0.85), rgba(0, 74, 173, 0.95)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;*/
+            /* Imagem de fundo genérica de construção/casa feliz */
             background: linear-gradient(rgba(0, 74, 173, 0.85), rgba(0, 74, 173, 0.95)), url('CaminhaoBaianao.png') no-repeat center center/cover;
             color: white;
             padding: 60px 0;
@@ -166,6 +165,80 @@
             line-height: 1.5;
         }
 
+        /* --- COUNTDOWN TIMER (RED CARD) --- */
+        .countdown-card {
+            background: linear-gradient(135deg, var(--accent-red) 0%, #b71c1c 100%);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin: 0 auto 35px auto;
+            max-width: 600px;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .countdown-title {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            color: var(--white);
+            font-weight: bold;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 10px;
+            padding: 10px 15px;
+            min-width: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s;
+        }
+        
+        .countdown-item:hover {
+            transform: scale(1.05);
+            background: rgba(0, 0, 0, 0.5);
+            border-color: var(--gold);
+        }
+
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--gold);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .countdown-label {
+            font-size: 0.75rem;
+            color: white;
+            text-transform: uppercase;
+            margin-top: 5px;
+            font-weight: 600;
+        }
+
+        .expired {
+            background-color: white;
+            color: var(--accent-red);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* --- VIDEO WRAPPER (Agora Imagem) --- */
         .video-wrapper {
             position: relative;
             padding-bottom: 56.25%; /* 16:9 */
@@ -405,21 +478,38 @@
             <h1>O CAMINHÃO DO BAIANÃO VAI REFORMAR A <span>SUA CASA!</span></h1>
             <p>Mais de <strong>R$ 50 Mil em prêmios</strong>. Geladeira, TV, Reforma e muito mais. Não é sorteio, é a sua história que ganha!</p>
             
-            <!-- VÍDEO DO YOUTUBE -->
-            <!-- IMPORTANTE: Substitua o ID 'SEU_ID_DO_VIDEO' abaixo pelo ID real do vídeo do YouTube quando o subir -->
-            <div class="video-wrapper">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/placeholder?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <!-- Placeholder visual caso não carregue o vídeo (para o preview) -->
-                <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); color:white; text-align:center; pointer-events:none;">
-                    <i class="fas fa-play-circle" style="font-size: 4rem; color: var(--gold);"></i>
-                    <p style="margin-top:10px;">Vídeo da Campanha</p>
+            <!-- IMAGEM DA CAMPANHA -->
+            <div style="margin-bottom: 30px; border-radius: 12px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.4); border: 4px solid var(--gold);">
+                <img src="https://images.unsplash.com/photo-1513883049090-d0b7439799bf?auto=format&fit=crop&w=1350&q=80" alt="Caminhão de Prêmios Baianão" style="width: 100%; height: auto; display: block;">
+            </div>
+
+            <!-- CRONÔMETRO RED CARD -->
+            <div class="countdown-card">
+                <p class="countdown-title">⏰ O tempo está acabando para participar:</p>
+                <div id="countdown" class="countdown-container">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">00</span>
+                        <span class="countdown-label">Dias</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">00</span>
+                        <span class="countdown-label">Horas</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-label">Min</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-label">Seg</span>
+                    </div>
                 </div>
             </div>
 
             <a href="https://wa.me/55999999999?text=Oi,+vi+o+anuncio+do+Caminhao+e+quero+fazer+um+orcamento!" class="btn-cta">
                 <i class="fab fa-whatsapp"></i> QUERO PARTICIPAR
             </a>
-            <p style="margin-top: 15px; font-size: 0.85rem; opacity: 0.8;">Oferta válida por tempo limitado. Clique para falar com um vendedor.</p>
+            <p style="margin-top: 15px; font-size: 0.85rem; opacity: 0.8;">Oferta válida até 15/12/2025 ou enquanto durarem os estoques.</p>
         </div>
     </section>
 
@@ -513,6 +603,47 @@
     <a href="https://wa.me/55999999999?text=Ola,+vi+o+video+do+caminhao+e+quero+comprar!" class="floating-wpp" target="_blank" title="Falar no WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
+
+    <!-- SCRIPT DO CRONÔMETRO CORRIGIDO -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Data alvo (ISO Format: Ano-Mes-DiaTHora:Min:Seg)
+            // 15 de Dezembro de 2025
+            var countDownDate = new Date("2025-12-15T00:00:00").getTime();
+            
+            var countdownElement = document.getElementById("countdown");
+            var daysEl = document.getElementById("days");
+            var hoursEl = document.getElementById("hours");
+            var minutesEl = document.getElementById("minutes");
+            var secondsEl = document.getElementById("seconds");
+
+            function updateTimer() {
+                var now = new Date().getTime();
+                var distance = countDownDate - now;
+
+                if (distance < 0) {
+                    clearInterval(timerInterval);
+                    countdownElement.innerHTML = "<div class='expired'>PROMOÇÃO ENCERRADA</div>";
+                    return;
+                }
+
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                if (daysEl) daysEl.innerHTML = days < 10 ? "0" + days : days;
+                if (hoursEl) hoursEl.innerHTML = hours < 10 ? "0" + hours : hours;
+                if (minutesEl) minutesEl.innerHTML = minutes < 10 ? "0" + minutes : minutes;
+                if (secondsEl) secondsEl.innerHTML = seconds < 10 ? "0" + seconds : seconds;
+            }
+
+            // Executa imediatamente para não esperar 1s
+            updateTimer();
+            // Atualiza a cada 1 segundo
+            var timerInterval = setInterval(updateTimer, 1000);
+        });
+    </script>
 
 </body>
 </html>
