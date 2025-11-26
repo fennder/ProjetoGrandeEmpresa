@@ -19,6 +19,7 @@
             --text-dark: #333333;
             --bg-light: #f4f7f6;
             --green-whatsapp: #25d366;
+            --header-border: #2F4892; /* Nova cor da borda */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -39,6 +40,7 @@
             max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
+            position: relative; /* Necessário para posicionamento absoluto de mascotes */
         }
 
         /* --- BOTÕES (CTA) --- */
@@ -59,6 +61,8 @@
             max-width: 400px;
             border: 2px solid white;
             cursor: pointer;
+            position: relative;
+            z-index: 10;
         }
 
         .btn-cta:hover {
@@ -68,14 +72,22 @@
 
         .btn-cta i { margin-right: 10px; }
 
-        /* --- HEADER --- */
+        /* --- HEADER (EFEITO GLASS REAL) --- */
         header {
-            background-color: var(--white);
+            /* Fundo muito mais transparente (0.2) para destacar o efeito de vidro */
+            background-color: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(20px); /* Aumentei o blur para suavizar o fundo */
+            -webkit-backdrop-filter: blur(20px); /* Suporte para Safari */
             padding: 15px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            position: fixed; /* Fica fixo sobre o conteúdo */
+            width: 100%;
             top: 0;
             z-index: 1000;
+            border-bottom: 4px solid var(--header-border); /* Linha inferior azul */
+            /* Adicionei uma borda sutil branca em cima para dar brilho de vidro */
+            border-top: 1px solid rgba(255, 255, 255, 0.4); 
+            transition: all 0.3s ease;
         }
         
         .header-content {
@@ -90,28 +102,35 @@
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: var(--primary-blue);
-            text-transform: uppercase;
-            letter-spacing: -1px;
+            display: block;
             text-decoration: none;
         }
         
-        .logo span { color: var(--accent-red); }
+        .logo img {
+            max-height: 60px; /* Define a altura da logo para caber no header */
+            width: auto;
+        }
 
         .desktop-contact {
             display: none;
             font-weight: bold;
-            color: var(--text-dark);
+            color: white; /* Alterado para Branco conforme solicitado */
+            text-decoration: none; /* Remove sublinhado do link */
+            transition: opacity 0.3s;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Sombreamento preto adicionado */
+        }
+
+        .desktop-contact:hover {
+            opacity: 0.8; /* Efeito suave ao passar o mouse */
         }
 
         /* --- HERO SECTION --- */
         .hero {
-            /* Imagem de fundo genérica de construção/casa feliz */
-            background: linear-gradient(rgba(0, 74, 173, 0.85), rgba(0, 74, 173, 0.95)), url('CaminhaoBaianao.png') no-repeat center center/cover;
+            /* Imagem de fundo MOBILE (Padrão) - imgfundom.png */
+            background: linear-gradient(rgba(0, 74, 173, 0.85), rgba(0, 74, 173, 0.95)), url('imgfundom.png') no-repeat center center/cover;
             color: white;
-            padding: 60px 0;
+            /* Aumentado o padding-top para 130px para compensar o header fixo */
+            padding: 130px 0 60px 0;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -126,6 +145,23 @@
             background-size: 50px 50px;
             opacity: 0.1;
             pointer-events: none;
+        }
+
+        /* MASCOTE HERO */
+        .mascot-hero {
+            display: none; /* Escondido no mobile por padrão para não atrapalhar layout, ou ajustado */
+            position: absolute;
+            bottom: -20px;
+            right: 0;
+            width: 150px;
+            z-index: 5;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+            animation: floatMascot 3s ease-in-out infinite;
+        }
+
+        @keyframes floatMascot {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         .hero-badge {
@@ -172,7 +208,7 @@
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             margin: 0 auto 35px auto;
-            max-width: 500px;
+            max-width: 600px;
             border: 2px solid rgba(255,255,255,0.3);
         }
 
@@ -190,7 +226,7 @@
             display: flex;
             justify-content: center;
             gap: 15px;
-            flex-wrap: wrap;
+            flex-wrap: wrap; /* Permite quebrar em desktop se necessário, mas vamos tratar mobile abaixo */
         }
 
         .countdown-item {
@@ -259,6 +295,112 @@
             height: 100%;
         }
 
+        /* --- OFERTAS (PRODUTOS) --- */
+        .product-offers {
+            padding: 50px 0;
+            background-color: #eef2f5;
+            text-align: center;
+        }
+
+        .product-offers h2 {
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            font-size: 1.6rem;
+            line-height: 1.3;
+        }
+
+        .section-subtitle {
+            display: block;
+            margin-bottom: 40px;
+            color: #666;
+            font-size: 1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .promo-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent-red);
+            color: white;
+            padding: 4px 10px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .product-img {
+            width: 150px;
+            height: 150px;
+            background-color: #f0f0f0; /* Placeholder cor */
+            margin-bottom: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ccc;
+        }
+        
+        .product-name {
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+        }
+
+        .product-price {
+            color: var(--primary-blue);
+            font-weight: 900;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .btn-buy-product {
+            background-color: transparent;
+            border: 2px solid var(--green-whatsapp);
+            color: var(--green-whatsapp);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-buy-product:hover {
+            background-color: var(--green-whatsapp);
+            color: white;
+        }
+
         /* --- PRÊMIOS (DESIRE) --- */
         .prizes {
             padding: 60px 0;
@@ -305,6 +447,14 @@
             padding: 60px 0;
             text-align: center;
             position: relative;
+        }
+
+        /* MASCOTE STEPS */
+        .mascot-steps {
+            width: 120px;
+            margin: 0 auto 20px;
+            display: block;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
         }
 
         .steps h2 { margin-bottom: 10px; }
@@ -375,6 +525,14 @@
             max-width: 800px;
             margin: 0 auto;
             border: 1px solid #eee;
+            position: relative;
+        }
+
+        /* Logo Pequena no Card */
+        .card-logo {
+            max-width: 120px;
+            margin: 0 auto 20px;
+            display: block;
         }
 
         .question-text {
@@ -397,6 +555,14 @@
             padding: 40px 0;
             text-align: center;
             font-size: 0.9rem;
+        }
+        
+        .footer-logo {
+            max-width: 150px;
+            margin: 0 auto 20px;
+            display: block;
+            filter: brightness(0) invert(1); /* Deixa a logo branca para o fundo escuro */
+            opacity: 0.8;
         }
         
         footer p { margin-bottom: 10px; }
@@ -455,7 +621,48 @@
                 text-align: center;
                 padding: 40px 20px;
             }
+            
+            /* Ajuste Desktop para o Hero */
+            .hero {
+                /* Imagem de fundo DESKTOP - imgfundod.png */
+                background: linear-gradient(rgba(0, 74, 173, 0.85), rgba(0, 74, 173, 0.95)), url('imgfundod.png') no-repeat center center/cover;
+            }
             .hero h1 { font-size: 3.5rem; }
+
+            /* Mascote aparece no desktop */
+            .mascot-hero {
+                display: block;
+                width: 200px; /* Maior no desktop */
+                right: 5%;
+                bottom: -40px;
+            }
+        }
+
+        /* FIX ESPECÍFICO PARA MOBILE - CRONÔMETRO */
+        @media (max-width: 600px) {
+            .countdown-container {
+                gap: 5px; /* Reduz espaçamento */
+                flex-wrap: nowrap; /* Força uma única linha */
+                justify-content: space-between;
+            }
+            
+            .countdown-item {
+                min-width: auto; /* Remove largura mínima */
+                padding: 8px 4px; /* Reduz preenchimento */
+                flex: 1; /* Distribui tamanho igual */
+            }
+            
+            .countdown-number {
+                font-size: 1.4rem; /* Reduz fonte do número */
+            }
+            
+            .countdown-label {
+                font-size: 0.6rem; /* Reduz fonte da etiqueta */
+            }
+
+            .countdown-card {
+                padding: 15px; /* Menos padding no card vermelho em mobile */
+            }
         }
     </style>
 </head>
@@ -464,30 +671,35 @@
     <!-- HEADER -->
     <header>
         <div class="container header-content">
-            <a href="#" class="logo"><!--BAIANÃO <span>MATERIAIS</span>--><img src='BAIANO.png' alt="Caminhão de Prêmios Baianão" style="width: 15%; height: auto; "></a>
-            
-            <div class="desktop-contact">
+            <a href="#" class="logo">
+                <img src="logocabecalho.png" alt="Baianão Materiais">
+            </a>
+            <!-- Alterado de DIV para A (Link) e adicionado o href do WhatsApp -->
+            <a href="https://wa.me/556335718918?text=Ola,+gostaria+de+falar+com+um+atendente." class="desktop-contact" target="_blank">
                 <i class="fab fa-whatsapp" style="color:var(--green-whatsapp)"></i> Fale conosco agora
-            </div>
+            </a>
         </div>
     </header>
 
     <!-- HERO SECTION -->
     <section class="hero">
-    
         <div class="container">
-          <div class="row">
-            <div class="col-md-8">
-              <img src="promocao.png" class="float-end img-fluid w-15 m-2" alt="Descrição da imagem">
-            </div>
-          </div>
             <div class="hero-badge">🎅 EDIÇÃO ESPECIAL DE NATAL</div>
             <h1>O CAMINHÃO DO BAIANÃO VAI REFORMAR A <span>SUA CASA!</span></h1>
-            <p>Mais de <strong>R$ 50 Mil em prêmios</strong>. Geladeira, TV, Reforma e muito mais. Não é sorteio, é a sua história que ganha!</p>
+            
+            <!-- Texto atualizado conforme solicitado -->
+            <p>
+                É só comprar <strong>R$300,00</strong> na nossa loja, ganhar o seu cupom e responder a pergunta: "Por que Você merece ganhar o Caminhão de Prêmios do Baiano?"
+                <br><br>
+                <strong>Não é sorteio, é seleção da melhor resposta!</strong>
+            </p>
+            
+            <!-- MASCOTE INSERIDO (Flutuante no desktop) -->
+            <img src="mascote.png" alt="Mascote Baianão" class="mascot-hero">
             
             <!-- IMAGEM DA CAMPANHA -->
             <div style="margin-bottom: 30px; border-radius: 12px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.4); border: 4px solid var(--gold);">
-                <img src="https://images.unsplash.com/photo-1513883049090-d0b7439799bf?auto=format&fit=crop&w=1350&q=80" alt="Caminhão de Prêmios Baianão" style="width: 100%; height: auto; display: block;">
+                <img src="./imagem.png" alt="Caminhão de Prêmios Baianão" style="width: 100%; height: auto; display: block;">
             </div>
 
             <!-- CRONÔMETRO RED CARD -->
@@ -513,10 +725,55 @@
                 </div>
             </div>
 
-            <a href="https://wa.me/55999999999?text=Oi,+vi+o+anuncio+do+Caminhao+e+quero+fazer+um+orcamento!" class="btn-cta">
+            <a href="https://wa.me/556335718918?text=Oi,+vi+o+anuncio+do+Caminhao+e+quero+fazer+um+orcamento!" class="btn-cta">
                 <i class="fab fa-whatsapp"></i> QUERO PARTICIPAR
             </a>
             <p style="margin-top: 15px; font-size: 0.85rem; opacity: 0.8;">Oferta válida até 15/12/2025 ou enquanto durarem os estoques.</p>
+        </div>
+    </section>
+
+    <!-- OFERTAS EM DESTAQUE (NOVA SEÇÃO 2) -->
+    <section class="product-offers">
+        <div class="container">
+            <h2>Acelere sua sorte!</h2>
+            <span class="section-subtitle">Confira ofertas imperdíveis para completar seus R$ 300,00 e concorrer:</span>
+            
+            <div class="products-grid">
+                <!-- Produto 1 -->
+                <div class="product-card">
+                    <div class="promo-tag">-20%</div>
+                    <div class="product-img"><i class="fas fa-box-open fa-3x"></i></div>
+                    <h3 class="product-name">Kit Ferramentas</h3>
+                    <div class="product-price">R$ 150,00</div>
+                    <a href="https://wa.me/556335718918?text=Quero+o+Kit+Ferramentas" class="btn-buy-product">
+                        <i class="fab fa-whatsapp"></i> Comprar
+                    </a>
+                </div>
+                
+                <!-- Produto 2 -->
+                <div class="product-card">
+                    <div class="promo-tag">OFERTA</div>
+                    <div class="product-img"><i class="fas fa-paint-brush fa-3x"></i></div>
+                    <h3 class="product-name">Tinta Acrílica 18L</h3>
+                    <div class="product-price">R$ 280,00</div>
+                    <a href="https://wa.me/556335718918?text=Quero+a+Tinta+Acrilica" class="btn-buy-product">
+                        <i class="fab fa-whatsapp"></i> Comprar
+                    </a>
+                </div>
+                
+                <!-- Produto 3 -->
+                <div class="product-card">
+                    <div class="promo-tag">IMPERDÍVEL</div>
+                    <div class="product-img"><i class="fas fa-shower fa-3x"></i></div>
+                    <h3 class="product-name">Chuveiro Elétrico</h3>
+                    <div class="product-price">R$ 89,90</div>
+                    <a href="https://wa.me/556335718918?text=Quero+o+Chuveiro" class="btn-buy-product">
+                        <i class="fab fa-whatsapp"></i> Comprar
+                    </a>
+                </div>
+            </div>
+            
+            <p style="margin-top: 30px; font-size: 0.9rem; color: #888;">*Imagens ilustrativas. Consulte disponibilidade.</p>
         </div>
     </section>
 
@@ -547,6 +804,9 @@
     <!-- COMO PARTICIPAR -->
     <section class="steps">
         <div class="container">
+            <!-- MASCOTE NA EXPLICAÇÃO -->
+            <img src="mascote.png" alt="Mascote explica" class="mascot-steps">
+            
             <h2>Como ganhar o Caminhão?</h2>
             <p>É muito simples. Siga o passo a passo para concorrer:</p>
             
@@ -579,7 +839,7 @@
                 <span>Não é sorteio! A história mais criativa leva tudo!</span>
             </div>
 
-            <a href="https://wa.me/55999999999?text=Oi,+quero+fazer+um+orcamento+de+300+reais+para+ganhar+o+cupom!" class="btn-cta" style="background: white; color: var(--primary-blue); border: none;">
+            <a href="https://wa.me/556335718918?text=Oi,+quero+fazer+um+orcamento+de+300+reais+para+ganhar+o+cupom!" class="btn-cta" style="background: white; color: var(--primary-blue); border: none;">
                 <i class="fab fa-whatsapp"></i> FAZER ORÇAMENTO AGORA
             </a>
         </div>
@@ -589,6 +849,9 @@
     <section class="contest-question">
         <div class="container">
             <div class="question-card">
+                <!-- LOGO ADICIONADA AO CARD -->
+                <img src="logocabecalho.png" alt="Baianão Materiais" class="card-logo">
+                
                 <h3 style="color: var(--text-dark);">A pergunta que vale uma casa nova:</h3>
                 <span class="question-text">"Por que eu mereço ganhar o caminhão de prêmios do Baianão?"</span>
                 <p>Prepare sua criatividade! Capriche na resposta, deposite na urna e torça muito.</p>
@@ -599,19 +862,23 @@
     <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p style="font-size: 1.2rem; font-weight: bold; color: white;">BAIANÃO MATERIAIS DE CONSTRUÇÃO</p>
+            <!-- Logo removida -->
+            
             <p>25 Anos construindo sonhos com você.</p>
             <br>
-            <p style="font-size: 0.75rem; opacity: 0.5;">Consulte o regulamento completo na loja. Imagens meramente ilustrativas. Campanha válida para compras acima de R$ 300,00.</p>
+            <p style="font-size: 0.75rem; opacity: 0.5;">
+                Consulte o regulamento completo na loja. Campanha válida para compras acima de R$ 300,00.<br>
+                CERTIFICADO DE AUTORIZAÇÃO SPA/ME N. ° 06.045010/2025 PROMOÇÃO N.° 2025/07484
+            </p>
         </div>
     </footer>
 
     <!-- WHATSAPP FLUTUANTE -->
-    <a href="https://wa.me/55999999999?text=Ola,+vi+o+video+do+caminhao+e+quero+comprar!" class="floating-wpp" target="_blank" title="Falar no WhatsApp">
+    <a href="https://wa.me/556335718918?text=Ola,+vi+o+video+do+caminhao+e+quero+comprar!" class="floating-wpp" target="_blank" title="Falar no WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- SCRIPT DO CRONÔMETRO CORRIGIDO -->
+    <!-- SCRIPT DO CRONÔMETRO -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Data alvo (ISO Format: Ano-Mes-DiaTHora:Min:Seg)
@@ -645,7 +912,7 @@
                 if (secondsEl) secondsEl.innerHTML = seconds < 10 ? "0" + seconds : seconds;
             }
 
-            // Executa imediatamente para não esperar 1s
+            // Executa imediatamente
             updateTimer();
             // Atualiza a cada 1 segundo
             var timerInterval = setInterval(updateTimer, 1000);
