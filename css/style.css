@@ -115,7 +115,7 @@
         /* --- HERO SECTION --- */
         .hero {
             /* Imagem de fundo MOBILE (Padrão) - imgfundom.png */
-            background: linear-gradient(rgba(0, 74, 173, 0.85), rgba(0, 74, 173, 0.95)), url("/image/imgfundom.png") no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 74, 173, 0.85), rgba(0, 74, 173, 0.95)), url('imgfundom.png') no-repeat center center/cover;
             color: white;
             /* Aumentado o padding-top para 130px para compensar o header fixo */
             padding: 130px 0 60px 0;
@@ -567,7 +567,7 @@
             /* Ajuste Desktop para o Hero */
             .hero {
                 /* Imagem de fundo DESKTOP - imgfundod.png */
-                background: linear-gradient(rgba(0, 74, 173, 0.85), rgba(0, 74, 173, 0.95)), url('/image/imgfundod.png') no-repeat center center/cover;
+                background: linear-gradient(rgba(0, 74, 173, 0.85), rgba(0, 74, 173, 0.95)), url('imgfundod.png') no-repeat center center/cover;
             }
             .hero h1 { font-size: 3.5rem; }
 
