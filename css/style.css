@@ -171,6 +171,24 @@
             60% {transform: translateY(-5px);}
         }
 
+         /* Keyframes: Define a trajetória */
+        @keyframes walk-across {
+            0% {
+                transform: translateX(0); /* Posição inicial (fora da tela à esquerda) */
+            }
+            50% {
+                transform: translateX(calc(100vw - 150px)); /* Anda até quase o lado direito da tela */
+            }
+            50.01% {
+                /* Vira o mascote para "voltar" */
+                transform: translateX(calc(100vw - 150px)) scaleX(-1);
+            }
+            100% {
+                /* Volta para a posição inicial, mantendo o mascote virado */
+                transform: translateX(0) scaleX(-1);
+            }
+        }
+
         .hero h1 {
             font-size: 2rem;
             margin-bottom: 15px;
