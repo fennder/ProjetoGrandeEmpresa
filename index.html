@@ -28,58 +28,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="css/style.css" rel="stylesheet">
 
-    <style>
-        :root {
-            /* Seus valores de cor existentes devem estar no style.css, mas adicionei aqui por segurança */
-            --primary-blue: #004d99;
-        }
-
-        /* ========================================
-        ESTILO DE MOVIMENTO DO MASCOTE
-        ========================================
-        */
-        .mascot-hero {
-            /* Garante que o mascote não afete o layout */
-            position: fixed; /* Troquei de 'float' para 'fixed' para flutuar pela tela */
-            bottom: 0;      /* Começa na parte de baixo */
-            left: -150px;   /* Começa fora da tela (ajuste para o tamanho do seu mascote) */
-            z-index: 1000;  /* Garante que ele fique acima de outros elementos */
-            width: 150px;   /* Tamanho para mobile (ajuste se for o caso) */
-            height: auto;
-            animation: walk-across 20s linear infinite; /* 20s de duração, linear, repetindo */
-        }
-
-        /* Keyframes: Define a trajetória */
-        @keyframes walk-across {
-            0% {
-                transform: translateX(0); /* Posição inicial (fora da tela à esquerda) */
-            }
-            50% {
-                transform: translateX(calc(100vw - 150px)); /* Anda até quase o lado direito da tela */
-            }
-            50.01% {
-                /* Vira o mascote para "voltar" */
-                transform: translateX(calc(100vw - 150px)) scaleX(-1);
-            }
-            100% {
-                /* Volta para a posição inicial, mantendo o mascote virado */
-                transform: translateX(0) scaleX(-1);
-            }
-        }
-
-        /* Opcional: Para telas grandes, use um posicionamento mais estático */
-        /* @media (min-width: 1200px) {
-            .mascot-hero {
-                position: absolute; 
-                bottom: -50px;
-                right: 50px;
-                left: auto;
-                animation: none;
-                transform: none;
-            }
-        } */
-    </style>
-
 </head>
 <body>
 
