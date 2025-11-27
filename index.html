@@ -9,6 +9,16 @@
     <!-- Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="css/style.css" rel="stylesheet">
+
+        <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WCCBXPEX1L"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-WCCBXPEX1L');
+    </script>
 </head>
 <body>
 
@@ -223,7 +233,7 @@
 
                 if (distance < 0) {
                     clearInterval(timerInterval);
-                    countdownElement.innerHTML = "<div class='expired'>PROMOÇÃO ENCERRADA</div>";
+                    countdownElement.innerHTML = "<div class='expired'>PROMOÇÃO ENCERRADA, ATÉ O PRÓXIMO ANIVERSÁRIO</div>";
                     return;
                 }
 
