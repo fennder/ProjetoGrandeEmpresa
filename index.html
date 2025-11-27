@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PPNW3RXP');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4Q8X5HPTL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-M4Q8X5HPTL');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caminhão de Prêmios - Baianão 25 Anos</title>
@@ -10,23 +28,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="css/style.css" rel="stylesheet">
 
-        <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WCCBXPEX1L"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-WCCBXPEX1L');
-    </script>
 </head>
 <body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PPNW3RXP"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <!-- HEADER -->
     <header>
         <div class="container header-content">
-            <a href="https://www.caminhaodobaianao.com.br" class="logo">
-                <img src="/image/logocabecalho.png" alt="Baianão Materiais">
+            <a href="#" class="logo">
+                <img src="logocabecalho.png" alt="Baianão Materiais">
             </a>
             <!-- Alterado de DIV para A (Link) e adicionado o href do WhatsApp -->
             <a href="https://wa.me/556335718918?text=Ola,+gostaria+de+falar+com+um+atendente." class="desktop-contact" target="_blank">
@@ -38,7 +52,7 @@
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="container">
-            <div class="hero-badge">🎅 EDIÇÃO ESPECIAL - 25 ANOS</div>
+            <div class="hero-badge">Edição especial - 25 anos</div>
             <h1>O CAMINHÃO DO BAIANÃO VAI REFORMAR A <span>SUA CASA!</span></h1>
             
             <!-- Texto atualizado conforme solicitado -->
@@ -90,7 +104,8 @@
     <section class="product-offers">
         <div class="container">
             <h2>Black Week Baianão</h2>
-            <span class="section-subtitle">Confira ofertas imperdíveis que você pode aproveitar e já garantir o seu cupom:</span>
+            <!-- Texto alterado aqui -->
+            <span class="section-subtitle">Confira as ofertas imperdíveis que você pode aproveitar e já garantir o seu cupom!</span>
             
             <div class="products-grid">
                 <!-- Produto 1 -->
@@ -200,8 +215,8 @@
         <div class="container">
             <!-- Logo removida -->
             
-            <p>25 Anos construindo sonhos com você.</p>
-
+            <p style="font-weight: bold; font-size: 1.1rem; color: white;">25 Anos construindo sonhos com você.</p>
+            
             <!-- Dados Fiscais da Empresa (Obrigatório para Google Ads) -->
             <p style="font-size: 0.85rem; margin-top: 20px; color: #ddd;">
                 <strong>Endereço:</strong> Av Taquaruçu Quadra 02 Lote 01 - Taquaralto - CEP 77064-598 - Palmas/TO<br>
@@ -216,8 +231,8 @@
                     Políticas de privacidade
                 </a>
             </div>
-            
-            <p style="font-size: 0.75rem; opacity: 0.5;">
+
+            <p style="font-size: 0.75rem; opacity: 0.5; border-top: 1px solid #444; padding-top: 20px;">
                 Consulte o regulamento completo na loja. Campanha válida para compras acima de R$ 300,00.<br>
                 CERTIFICADO DE AUTORIZAÇÃO SPA/ME N. ° 06.045010/2025 PROMOÇÃO N.° 2025/07484
             </p>
@@ -248,7 +263,7 @@
 
                 if (distance < 0) {
                     clearInterval(timerInterval);
-                    countdownElement.innerHTML = "<div class='expired'>PROMOÇÃO ENCERRADA, ATÉ O PRÓXIMO ANIVERSÁRIO</div>";
+                    countdownElement.innerHTML = "<div class='expired'>PROMOÇÃO ENCERRADA</div>";
                     return;
                 }
 
