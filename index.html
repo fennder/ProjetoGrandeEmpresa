@@ -127,7 +127,7 @@
         /* --- HERO SECTION --- */
         .hero {
             /* Imagem de fundo MOBILE (Padrão) - imgfundom.png */
-            background: linear-gradient(rgba(0, 74, 173, 0.85), rgba(0, 74, 173, 0.95)), url('imgfundom.png') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 74, 173, 0.85), rgba(0, 74, 173, 0.95)), url('/image/imgfundom.png') no-repeat center center/cover;
             color: white;
             /* Aumentado o padding-top para 130px para compensar o header fixo */
             padding: 130px 0 60px 0;
@@ -298,21 +298,23 @@
         /* --- OFERTAS (PRODUTOS) --- */
         .product-offers {
             padding: 50px 0;
-            background-color: #eef2f5;
+            background-color: #1a1a1a; /* Alterado para um cinza muito escuro para combinar com o fundo preto das imagens */
             text-align: center;
         }
 
         .product-offers h2 {
-            color: var(--text-dark);
+            color: var(--white); /* Texto branco para contraste no fundo escuro */
             margin-bottom: 10px;
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             line-height: 1.3;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
         }
 
         .section-subtitle {
             display: block;
             margin-bottom: 40px;
-            color: #666;
+            color: #ccc; /* Texto cinza claro */
             font-size: 1rem;
             max-width: 800px;
             margin-left: auto;
@@ -321,86 +323,38 @@
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajustado minmax para não ficar muito pequeno */
             gap: 20px;
+            justify-content: center;
         }
 
         .product-card {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+            background: transparent; /* Fundo transparente pois a imagem já tem fundo */
+            border-radius: 15px; /* Arredondamento suave */
+            padding: 0; /* Zero padding para a imagem ocupar tudo */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5); /* Sombra escura para destacar do fundo */
+            transition: transform 0.3s, box-shadow 0.3s;
             position: relative;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            display: block; /* Para funcionar bem com o link */
+            aspect-ratio: 1080 / 1350; /* Mantém a proporção exata da imagem */
         }
 
         .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.7), 0 0 15px rgba(211, 47, 47, 0.4); /* Glow vermelho no hover */
         }
 
-        .promo-tag {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: var(--accent-red);
-            color: white;
-            padding: 4px 10px;
-            font-size: 0.7rem;
-            font-weight: bold;
-            border-radius: 4px;
-            text-transform: uppercase;
+        /* A imagem ocupa 100% do card */
+        .product-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Garante que preencha sem distorcer */
+            display: block;
         }
 
-        .product-img {
-            width: 150px;
-            height: 150px;
-            background-color: #f0f0f0; /* Placeholder cor */
-            margin-bottom: 15px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ccc;
-        }
+        /* Removidos estilos antigos de texto/botão que não serão usados */
         
-        .product-name {
-            font-weight: 700;
-            margin-bottom: 5px;
-            color: var(--text-dark);
-            font-size: 1.1rem;
-        }
-
-        .product-price {
-            color: var(--primary-blue);
-            font-weight: 900;
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-        }
-
-        .btn-buy-product {
-            background-color: transparent;
-            border: 2px solid var(--green-whatsapp);
-            color: var(--green-whatsapp);
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-weight: bold;
-            text-decoration: none;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .btn-buy-product:hover {
-            background-color: var(--green-whatsapp);
-            color: white;
-        }
-
         /* --- PRÊMIOS (DESIRE) --- */
         .prizes {
             padding: 60px 0;
@@ -672,7 +626,7 @@
     <header>
         <div class="container header-content">
             <a href="#" class="logo">
-                <img src="logocabecalho.png" alt="Baianão Materiais">
+                <img src="/image/logocabecalho.png" alt="Baianão Materiais">
             </a>
             <!-- Alterado de DIV para A (Link) e adicionado o href do WhatsApp -->
             <a href="https://wa.me/556335718918?text=Ola,+gostaria+de+falar+com+um+atendente." class="desktop-contact" target="_blank">
@@ -695,11 +649,11 @@
             </p>
             
             <!-- MASCOTE INSERIDO (Flutuante no desktop) -->
-            <img src="mascote.png" alt="Mascote Baianão" class="mascot-hero">
+            <img src="/image/mascote.png" alt="Mascote Baianão" class="mascot-hero">
             
             <!-- IMAGEM DA CAMPANHA -->
             <div style="margin-bottom: 30px; border-radius: 12px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.4); border: 4px solid var(--gold);">
-                <img src="./imagem.png" alt="Caminhão de Prêmios Baianão" style="width: 100%; height: auto; display: block;">
+                <img src="./image/imagem.png" alt="Caminhão de Prêmios Baianão" style="width: 100%; height: auto; display: block;">
             </div>
 
             <!-- CRONÔMETRO RED CARD -->
@@ -735,45 +689,27 @@
     <!-- OFERTAS EM DESTAQUE (NOVA SEÇÃO 2) -->
     <section class="product-offers">
         <div class="container">
-            <h2>Acelere sua sorte!</h2>
-            <span class="section-subtitle">Confira ofertas imperdíveis para completar seus R$ 300,00 e concorrer:</span>
+            <h2>Black Week Baianão</h2>
+            <span class="section-subtitle">Confira ofertas imperdíveis para completar seus R$ 300,00 e concorrer. Toque na imagem para aproveita-los e garantir seu cupom:</span>
             
             <div class="products-grid">
                 <!-- Produto 1 -->
-                <div class="product-card">
-                    <div class="promo-tag">-20%</div>
-                    <div class="product-img"><i class="fas fa-box-open fa-3x"></i></div>
-                    <h3 class="product-name">Kit Ferramentas</h3>
-                    <div class="product-price">R$ 150,00</div>
-                    <a href="https://wa.me/556335718918?text=Quero+o+Kit+Ferramentas" class="btn-buy-product">
-                        <i class="fab fa-whatsapp"></i> Comprar
-                    </a>
-                </div>
+                <a href="https://wa.me/556335718918?text=Ola,+vi+o+Vaso+Gardencia+na+Black+Week+e+quero+comprar!" class="product-card">
+                    <img src="/image/produto1.jpeg" alt="Oferta Black Week Produto 1">
+                </a>
                 
                 <!-- Produto 2 -->
-                <div class="product-card">
-                    <div class="promo-tag">OFERTA</div>
-                    <div class="product-img"><i class="fas fa-paint-brush fa-3x"></i></div>
-                    <h3 class="product-name">Tinta Acrílica 18L</h3>
-                    <div class="product-price">R$ 280,00</div>
-                    <a href="https://wa.me/556335718918?text=Quero+a+Tinta+Acrilica" class="btn-buy-product">
-                        <i class="fab fa-whatsapp"></i> Comprar
-                    </a>
-                </div>
+                <a href="https://wa.me/556335718918?text=Ola,+vi+o+Produto+2+na+Black+Week+e+quero+comprar!" class="product-card">
+                    <img src="/image/produto2.jpeg" alt="Oferta Black Week Produto 2">
+                </a>
                 
                 <!-- Produto 3 -->
-                <div class="product-card">
-                    <div class="promo-tag">IMPERDÍVEL</div>
-                    <div class="product-img"><i class="fas fa-shower fa-3x"></i></div>
-                    <h3 class="product-name">Chuveiro Elétrico</h3>
-                    <div class="product-price">R$ 89,90</div>
-                    <a href="https://wa.me/556335718918?text=Quero+o+Chuveiro" class="btn-buy-product">
-                        <i class="fab fa-whatsapp"></i> Comprar
-                    </a>
-                </div>
+                <a href="https://wa.me/556335718918?text=Ola,+vi+o+Produto+3+na+Black+Week+e+quero+comprar!" class="product-card">
+                    <img src="/image/produto3.jpeg" alt="Oferta Black Week Produto 3">
+                </a>
             </div>
             
-            <p style="margin-top: 30px; font-size: 0.9rem; color: #888;">*Imagens ilustrativas. Consulte disponibilidade.</p>
+            <p style="margin-top: 30px; font-size: 0.8rem; color: #666;">*Ofertas válidas por tempo limitado ou enquanto durarem os estoques.</p>
         </div>
     </section>
 
@@ -805,7 +741,7 @@
     <section class="steps">
         <div class="container">
             <!-- MASCOTE NA EXPLICAÇÃO -->
-            <img src="mascote.png" alt="Mascote explica" class="mascot-steps">
+            <img src="/image/mascote.png" alt="Mascote explica" class="mascot-steps">
             
             <h2>Como ganhar o Caminhão?</h2>
             <p>É muito simples. Siga o passo a passo para concorrer:</p>
@@ -850,7 +786,7 @@
         <div class="container">
             <div class="question-card">
                 <!-- LOGO ADICIONADA AO CARD -->
-                <img src="logocabecalho.png" alt="Baianão Materiais" class="card-logo">
+                <img src="/image/logocabecalho.png" alt="Baianão Materiais" class="card-logo">
                 
                 <h3 style="color: var(--text-dark);">A pergunta que vale uma casa nova:</h3>
                 <span class="question-text">"Por que eu mereço ganhar o caminhão de prêmios do Baianão?"</span>
