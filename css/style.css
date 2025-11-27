@@ -1,0 +1,608 @@
+/* --- CSS GLOBAL & RESET --- */
+        :root {
+            --primary-blue: #004aad; /* Azul Institucional */
+            --accent-red: #d32f2f; /* Vermelho Natal */
+            --gold: #ffc107; /* Dourado Prêmios */
+            --white: #ffffff;
+            --text-dark: #333333;
+            --bg-light: #f4f7f6;
+            --green-whatsapp: #25d366;
+            --header-border: #2F4892; /* Nova cor da borda */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; }
+        
+        img { max-width: 100%; height: auto; display: block; }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative; /* Necessário para posicionamento absoluto de mascotes */
+        }
+
+        /* --- BOTÕES (CTA) --- */
+        .btn-cta {
+            display: inline-block;
+            background: linear-gradient(180deg, #25d366 0%, #128c7e 100%);
+            color: white;
+            padding: 18px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            border: 2px solid white;
+            cursor: pointer;
+            position: relative;
+            z-index: 10;
+        }
+
+        .btn-cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        .btn-cta i { margin-right: 10px; }
+
+        /* --- HEADER (EFEITO GLASS REAL) --- */
+        header {
+            /* Fundo muito mais transparente (0.2) para destacar o efeito de vidro */
+            background-color: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(20px); /* Aumentei o blur para suavizar o fundo */
+            -webkit-backdrop-filter: blur(20px); /* Suporte para Safari */
+            padding: 15px 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            position: fixed; /* Fica fixo sobre o conteúdo */
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 4px solid var(--header-border); /* Linha inferior azul */
+            /* Adicionei uma borda sutil branca em cima para dar brilho de vidro */
+            border-top: 1px solid rgba(255, 255, 255, 0.4); 
+            transition: all 0.3s ease;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: center; /* Centralizado para dar foco */
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .header-content { justify-content: space-between; }
+            .desktop-contact { display: block !important; }
+        }
+
+        .logo {
+            display: block;
+            text-decoration: none;
+        }
+        
+        .logo img {
+            max-height: 60px; /* Define a altura da logo para caber no header */
+            width: auto;
+        }
+
+        .desktop-contact {
+            display: none;
+            font-weight: bold;
+            color: white; /* Alterado para Branco conforme solicitado */
+            text-decoration: none; /* Remove sublinhado do link */
+            transition: opacity 0.3s;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Sombreamento preto adicionado */
+        }
+
+        .desktop-contact:hover {
+            opacity: 0.8; /* Efeito suave ao passar o mouse */
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            /* Imagem de fundo MOBILE (Padrão) - imgfundom.png */
+            background: linear-gradient(rgba(0, 74, 173, 0.85), rgba(0, 74, 173, 0.95)), url('/image/imgfundom.png') no-repeat center center/cover;
+            color: white;
+            /* Aumentado o padding-top para 130px para compensar o header fixo */
+            padding: 130px 0 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Partículas douradas (efeito simples) */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(var(--gold) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        /* MASCOTE HERO */
+        .mascot-hero {
+            display: none; /* Escondido no mobile por padrão para não atrapalhar layout, ou ajustado */
+            position: absolute;
+            bottom: -20px;
+            right: 0;
+            width: 150px;
+            z-index: 5;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+            animation: floatMascot 3s ease-in-out infinite;
+        }
+
+        @keyframes floatMascot {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero-badge {
+            background-color: var(--accent-red);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(255, 193, 7, 0.5);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        .hero h1 span { color: var(--gold); }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+
+        /* --- COUNTDOWN TIMER (RED CARD) --- */
+        .countdown-card {
+            background: linear-gradient(135deg, var(--accent-red) 0%, #b71c1c 100%);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin: 0 auto 35px auto;
+            max-width: 600px;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .countdown-title {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            color: var(--white);
+            font-weight: bold;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap; /* Permite quebrar em desktop se necessário, mas vamos tratar mobile abaixo */
+        }
+
+        .countdown-item {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 10px;
+            padding: 10px 15px;
+            min-width: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s;
+        }
+        
+        .countdown-item:hover {
+            transform: scale(1.05);
+            background: rgba(0, 0, 0, 0.5);
+            border-color: var(--gold);
+        }
+
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--gold);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .countdown-label {
+            font-size: 0.75rem;
+            color: white;
+            text-transform: uppercase;
+            margin-top: 5px;
+            font-weight: 600;
+        }
+
+        .expired {
+            background-color: white;
+            color: var(--accent-red);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* --- VIDEO WRAPPER (Agora Imagem) --- */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            border: 4px solid var(--gold);
+            background-color: #000;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* --- OFERTAS (PRODUTOS) --- */
+        .product-offers {
+            padding: 50px 0;
+            background-color: #1a1a1a; /* Alterado para um cinza muito escuro para combinar com o fundo preto das imagens */
+            text-align: center;
+        }
+
+        .product-offers h2 {
+            color: var(--white); /* Texto branco para contraste no fundo escuro */
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+            line-height: 1.3;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+        }
+
+        .section-subtitle {
+            display: block;
+            margin-bottom: 40px;
+            color: #ccc; /* Texto cinza claro */
+            font-size: 1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajustado minmax para não ficar muito pequeno */
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .product-card {
+            background: transparent; /* Fundo transparente pois a imagem já tem fundo */
+            border-radius: 15px; /* Arredondamento suave */
+            padding: 0; /* Zero padding para a imagem ocupar tudo */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5); /* Sombra escura para destacar do fundo */
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            display: block; /* Para funcionar bem com o link */
+            aspect-ratio: 1080 / 1350; /* Mantém a proporção exata da imagem */
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.7), 0 0 15px rgba(211, 47, 47, 0.4); /* Glow vermelho no hover */
+        }
+
+        /* A imagem ocupa 100% do card */
+        .product-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Garante que preencha sem distorcer */
+            display: block;
+        }
+
+        /* Removidos estilos antigos de texto/botão que não serão usados */
+        
+        /* --- PRÊMIOS (DESIRE) --- */
+        .prizes {
+            padding: 60px 0;
+            text-align: center;
+            background-color: white;
+        }
+
+        .prizes h2 {
+            color: var(--primary-blue);
+            margin-bottom: 40px;
+            font-size: 1.8rem;
+        }
+
+        .prize-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .prize-card {
+            background: #fff;
+            padding: 30px 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-bottom: 5px solid var(--accent-red);
+            transition: transform 0.3s ease;
+        }
+
+        .prize-card:hover { transform: translateY(-10px); }
+
+        .prize-icon {
+            font-size: 3.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .prize-card h3 { font-size: 1.3rem; margin-bottom: 10px; color: #222; }
+        .prize-card p { font-size: 0.95rem; color: #666; }
+
+        /* --- COMO PARTICIPAR (MECHANICS) --- */
+        .steps {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        /* MASCOTE STEPS */
+        .mascot-steps {
+            width: 120px;
+            margin: 0 auto 20px;
+            display: block;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+        }
+
+        .steps h2 { margin-bottom: 10px; }
+        .steps > .container > p { margin-bottom: 40px; font-size: 1.1rem; opacity: 0.9; }
+
+        .step-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .step-item {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .step-number {
+            background-color: var(--gold);
+            color: var(--primary-blue);
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.5rem;
+        }
+
+        .step-content h3 { font-size: 1.2rem; margin-bottom: 5px; }
+        .step-content p { font-size: 0.95rem; opacity: 0.9; margin: 0; }
+
+        .highlight-box {
+            background-color: var(--white);
+            color: var(--accent-red);
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin: 40px auto;
+            max-width: 600px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border: 2px dashed var(--accent-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        /* --- CONCURSO CULTURAL --- */
+        .contest-question {
+            padding: 60px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+        }
+
+        .question-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid #eee;
+            position: relative;
+        }
+
+        /* Logo Pequena no Card */
+        .card-logo {
+            max-width: 120px;
+            margin: 0 auto 20px;
+            display: block;
+        }
+
+        .question-text {
+            font-family: 'Montserrat', serif;
+            font-size: 1.5rem;
+            color: var(--accent-red);
+            font-weight: bold;
+            font-style: italic;
+            margin: 25px 0;
+            display: block;
+            background: #fff0f0;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #222;
+            color: #ccc;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .footer-logo {
+            max-width: 150px;
+            margin: 0 auto 20px;
+            display: block;
+            filter: brightness(0) invert(1); /* Deixa a logo branca para o fundo escuro */
+            opacity: 0.8;
+        }
+        
+        footer p { margin-bottom: 10px; }
+
+        /* --- FLOATING WHATSAPP --- */
+        .floating-wpp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--green-whatsapp);
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 2000;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .floating-wpp:hover {
+            transform: scale(1.1);
+        }
+
+        .floating-wpp::after {
+            content: '';
+            position: absolute;
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            background: var(--green-whatsapp);
+            opacity: 0.5;
+            z-index: -1;
+            animation: pulse-wpp 2s infinite;
+        }
+
+        @keyframes pulse-wpp {
+            0% { transform: scale(1); opacity: 0.6; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        /* --- RESPONSIVO --- */
+        @media (min-width: 768px) {
+            .step-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .step-item {
+                flex: 1;
+                min-width: 280px;
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 20px;
+            }
+            
+            /* Ajuste Desktop para o Hero */
+            .hero {
+                /* Imagem de fundo DESKTOP - imgfundod.png */
+                background: linear-gradient(rgba(0, 74, 173, 0.85), rgba(0, 74, 173, 0.95)), url('imgfundod.png') no-repeat center center/cover;
+            }
+            .hero h1 { font-size: 3.5rem; }
+
+            /* Mascote aparece no desktop */
+            .mascot-hero {
+                display: block;
+                width: 200px; /* Maior no desktop */
+                right: 5%;
+                bottom: -40px;
+            }
+        }
+
+        /* FIX ESPECÍFICO PARA MOBILE - CRONÔMETRO */
+        @media (max-width: 600px) {
+            .countdown-container {
+                gap: 5px; /* Reduz espaçamento */
+                flex-wrap: nowrap; /* Força uma única linha */
+                justify-content: space-between;
+            }
+            
+            .countdown-item {
+                min-width: auto; /* Remove largura mínima */
+                padding: 8px 4px; /* Reduz preenchimento */
+                flex: 1; /* Distribui tamanho igual */
+            }
+            
+            .countdown-number {
+                font-size: 1.4rem; /* Reduz fonte do número */
+            }
+            
+            .countdown-label {
+                font-size: 0.6rem; /* Reduz fonte da etiqueta */
+            }
+
+            .countdown-card {
+                padding: 15px; /* Menos padding no card vermelho em mobile */
+            }
+        }
